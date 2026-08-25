@@ -138,3 +138,24 @@ a {
     font-family: var(--fuente-display);
     font-weight: 700;
 }
+
+css/global.css
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: fuente-principal;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 48px;
+}
