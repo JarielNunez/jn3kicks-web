@@ -139,7 +139,6 @@ a {
     font-weight: 700;
 }
 
-<<<<<<< HEAD
 css/global.css
 
 * {
@@ -160,7 +159,6 @@ body {
     justify-content: space-between;
     padding: 24px 48px;
 }
-=======
 
 /* DESTACADOS */
 
@@ -207,7 +205,6 @@ body {
 
 .card__precio {
     font-size: 0.9rem;
-    color: var(--color-texto-secundario);
+    color: var(--color-acento-secundario);
 }
 
->>>>>>> 83516ef783a5a159a2ab03d07b9c4c89d3680542
