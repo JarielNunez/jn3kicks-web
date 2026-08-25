@@ -108,5 +108,23 @@ a {
 
 .boton--primario:hover {
   opacity: 0.85;
-  
+
+}
+
+.hero__imagen {
+   aspect-ratio: 4 / 3;
+   background-color: var(--color-fondo-elevado);
+   border: 1px dashed var(--color-borde);
+   border-radius: 14px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   overflow: hidden;
+
+}
+
+.hero__imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
