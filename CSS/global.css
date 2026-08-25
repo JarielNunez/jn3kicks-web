@@ -18,3 +18,52 @@ body {
     justify-content: space-between;
     padding: 24px 48px;
 }
+
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav__links {
+    display: flex;
+    gap: 40px;
+}
+
+.nav__links a {
+    font-size: 0.95rem;
+    color: var(--color-texto-secundario);
+    transition: color 0.2s ease;
+}
+
+.nav__links a:hover {
+    color: var(--color-texto);
+}
+
+/* button styles */
+
+.nav__iconos {
+    display: flex;
+    gap: 16px;
+}
+
+.icono-btn {
+   background: none;
+   border: none;
+   color: var(--color-texto);
+   cursor: pointer;
+   display: flex;
+    align-items: center;
+}
+
+/* grid, herramienta layout */
+
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 80px;
+    padding: 80px 48px;
+}
