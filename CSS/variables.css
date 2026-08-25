@@ -1,6 +1,6 @@
 :root {
-    --color-fondo: #000000;
-    --color-texto:  #ffffff;
+    --color-fondo: hsl(0, 0%, 100%);
+    --color-texto:  oklab(0% 0 0);
     --color-texto-secundario: #9a9a9a;
     --color-acento: #5280ff;
     --color-borde: #2b2b2b;
