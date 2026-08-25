@@ -67,3 +67,46 @@ a {
     gap: 80px;
     padding: 80px 48px;
 }
+
+/* button styles */
+.hero_eyebrow {
+    color: var(--color-texto-acento);
+    front-size: 0.85rem;
+    front-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 16px;
+}
+
+.hero_titulo {
+    font-size: 2.75rem;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 24px;
+}
+
+.hero_descripcion {
+    color: var(--color-texto-secundario);
+    font-size: 1.05rem;
+    max-width: 40ch;
+    margin-bottom: 32px;
+}
+
+.boton {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+
+}
+
+.boton--primario {
+  background-color: var(--color-texto);
+  color: var(--color-fondo);
+}
+
+.boton--primario:hover {
+  opacity: 0.85;
+  
+}
