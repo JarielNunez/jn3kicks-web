@@ -138,3 +138,24 @@ a {
     font-family: var(--fuente-display);
     font-weight: 700;
 }
+
+
+/* DESTACADOS */
+
+.destacados {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 48px;
+}
+
+.destacados__titulo {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.destacados__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
