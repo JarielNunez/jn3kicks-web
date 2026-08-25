@@ -1,7 +1,9 @@
  css/variables.css
+
+
 :root {
-    --color-fondo: #ffffff ;
-    --color-texto: #000000 ;
+    --color-fondo: #000000;
+    --color-texto:  #ffffff;
     --color-texto-secundario: #9a9a9a;
     --color-acento: #5280ff;
     --color-borde: #2b2b2b;
