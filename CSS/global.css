@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: fuente-principal;
+    font-family: var(--fuente-principal);
     background-color: var(--color-fondo);
     color: var(--color-texto);
 }
@@ -69,29 +69,25 @@ a {
     border-radius: 12px;
 }
 
-.hero__subtitulo{
-
-    color: var(--color-acento);
-}
 
 /* button styles */
-.hero_eyebrow {
-    color: var(--color-texto-acento);
-    front-size: 0.85rem;
-    front-weight: 600;
+.hero__subtitulo {
+    color: var(--color-acento);
+    font-size: 0.85rem;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     margin-bottom: 16px;
 }
 
-.hero_titulo {
+.hero__titulo {
     font-size: 2.75rem;
     font-weight: 800;
     line-height: 1.15;
     margin-bottom: 24px;
 }
 
-.hero_descripcion {
+.hero__descripcion {
     color: var(--color-texto-secundario);
     font-size: 1.05rem;
     max-width: 40ch;
@@ -133,4 +129,12 @@ a {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+/* LOGO Y TITULO */
+
+.logo,
+.hero__titulo {
+    font-family: var(--fuente-display);
+    font-weight: 700;
 }
