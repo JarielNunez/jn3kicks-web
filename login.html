@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Sesión | JN3 KICKS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./CSS/login.css">
+</head>
+<body class="auth-page">
+
+  <header class="header">
+    <div class="header__container">
+      <a href="index.html" class="header__logo">JN3 KICKS</a>
+      <nav class="header__nav">
+        <a href="index.html" class="header__link">Inicio</a>
+        <a href="catalogo.html" class="header__link">Catálogo</a>
+        <a href="nosotros.html" class="header__link">Nosotros</a>
+        <a href="contacto.html" class="header__link">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contenedor Principal del Formularios -->
+  <main class="auth-container">
+    <section class="login-card">
+      <header class="login-card__header">
+        <h1 class="login-card__title">Bienvenido de nuevo</h1>
+        <p class="login-card__subtitle">Ingresa tus credenciales para acceder a tu cuenta</p>
+      </header>
+
+      <form class="login-card__form" action="#" method="POST" id="loginForm">
+        
+        <div class="login-card__field">
+          <label for="email" class="login-card__label">Correo Electrónico</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            class="login-card__input" 
+            placeholder="ejemplo@correo.com" 
+            required
+          >
+        </div>
+
+        <div class="login-card__field">
+          <div class="login-card__label-wrapper">
+            <label for="password" class="login-card__label">Contraseña</label>
+            <a href="#" class="login-card__forgot-link">¿Olvidaste tu contraseña?</a>
+          </div>
+          <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            class="login-card__input" 
+            placeholder="••••••••" 
+            required
+          >
+        </div>
+
+        <div class="login-card__options">
+          <label class="login-card__checkbox-label">
+            <input type="checkbox" class="login-card__checkbox" name="remember">
+            <span class="login-card__checkbox-text">Recordar mi sesión</span>
+          </label>
+        </div>
+
+        <button type="submit" class="login-card__button login-card__button--primary">
+          Iniciar Sesión
+        </button>
+      </form>
+
+      <footer class="login-card__footer">
+        <p class="login-card__register-text">
+          ¿No tienes una cuenta? 
+          <a href="#" class="login-card__register-link">Regístrate aquí</a>
+        </p>
+      </footer>
+    </section>
+  </main>
+
+</body>
+</html>

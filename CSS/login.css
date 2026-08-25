@@ -1,0 +1,219 @@
+@import url(./variables.css);
+/* --- VARIABLES DEL SISTEMA DE DISEÑO --- */
+:root {
+  --color-bg-input: #242424;
+  --color-border: #333333;
+  --color-texto-secondary: #a1a1a1;
+  --color-accent-hover: #e6e6e6;
+  --border-radius: 6px;
+  --transition: all 0.2s ease-in-out;
+}
+
+/* --- RESET BÁSICO --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--fuente-principal);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- BLOCK: HEADER --- */
+.header {
+  border-bottom: 1px solid var(--color-border);
+  padding: 1rem 2rem;
+  background-color: var(--color-fondo);
+}
+
+.header__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo {
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+  color: var(--color-texto);
+  text-decoration: none;
+}
+
+.header__nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.header__link {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.header__link:hover {
+  color: var(--color-texto);
+}
+
+/* --- BLOCK: AUTH CONTAINER --- */
+.auth-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+/* --- BLOCK: LOGIN CARD --- */
+.login-card {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  width: 100%;
+  max-width: 420px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.login-card__header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.login-card__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.login-card__subtitle {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.login-card__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.login-card__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.login-card__label-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login-card__label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-texto);
+}
+
+.login-card__forgot-link {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.login-card__forgot-link:hover {
+  color: var(--color-text);
+  text-decoration: underline;
+}
+
+.login-card__input {
+  background-color: var(--color-bg-input);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: 0.75rem 1rem;
+  color: var(--color-texto);
+  font-size: 0.9rem;
+  outline: none;
+  transition: var(--transition);
+}
+
+.login-card__input:focus {
+  border-color: var(--color-acento);
+}
+
+.login-card__options {
+  display: flex;
+  align-items: center;
+}
+
+.login-card__checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.login-card__checkbox {
+  accent-color: var(--color-acento);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.login-card__checkbox-text {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+}
+
+.login-card__button {
+  width: 100%;
+  padding: 0.85rem;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 0.5rem;
+}
+
+.login-card__button--primary {
+  background-color: var(--color-acento);
+  color: #000000;
+}
+
+.login-card__button--primary:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.login-card__footer {
+  margin-top: 2rem;
+  text-align: center;
+  border-top: 1px solid var(--color-border);
+  padding-top: 1.25rem;
+}
+
+.login-card__register-text {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+
+.login-card__register-link {
+  color: var(--color-texto);
+  text-weight: 600;
+  text-decoration: none;
+}
+
+.login-card__register-link:hover {
+  text-decoration: underline;
+}
