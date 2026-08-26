@@ -212,7 +212,7 @@ ul {
 }
 
 .footer {
-  background-color: #000000;
+  background-color: var(--color-fondo);
   margin-top: 80px;
 }
 
