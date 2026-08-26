@@ -111,13 +111,13 @@ a {
 .boton--primario:hover {
   opacity: 0.85;
 
-}
+}e
 
 .hero__imagen {
    aspect-ratio: 4 / 3;
-   background-color: var(--color-fondo-elevado);
-   border: 1px dashed var(--color-borde);
+   background-color: #f7f7f7;
    border-radius: 14px;
+   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
    display: flex;
    align-items: center;
    justify-content: center;
@@ -148,7 +148,7 @@ css/global.css
 }
 
 body {
-    font-family: fuente-principal;
+    font-family: var(--fuente-principal);
     background-color: var(--color-fondo);
     color: var(--color-texto);
 }
@@ -181,25 +181,25 @@ body {
 }
 
 .card {
-    background-color: var(--color-fondo-elevado);
+    background-color: var(--color-fondo);
     border: 1px solid var(--color-borde);
     border-radius: 14px;
     padding: 24px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     
 }
 
 .card:hover {
     transform: translateY(-6px);
-    border-color: var(--color-acento-secundario);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.14);
 }
 
 .card__imagen {
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    background-color: var(--color-fondo);
+    background-color: #f7f7f7;
     border-radius: 8px;
     margin-bottom: 16px;
 }
