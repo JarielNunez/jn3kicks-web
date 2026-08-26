@@ -491,7 +491,7 @@ header nav {
 
 /* ===== Footer (se queda oscuro, igual que el header) ===== */
 .footer {
-    background-color: #1a1a1a;
+    background-color: var(--color-fondo);
     padding: 30px 40px;
     text-align: center;
 }
