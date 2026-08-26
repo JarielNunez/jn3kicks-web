@@ -116,7 +116,7 @@ a {
 .hero__imagen {
    aspect-ratio: 4 / 3;
    background-color: #f7f7f7;
-   border-radius: 14px;
+   border-radius: 70px;
    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
    display: flex;
    align-items: center;
