@@ -139,28 +139,6 @@ a {
     font-weight: 700;
 }
 
-<<<<<<< HEAD
-css/global.css
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: fuente-principal;
-    background-color: var(--color-fondo);
-    color: var(--color-texto);
-}
-
-.nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 24px 48px;
-}
-=======
 
 /* DESTACADOS */
 
@@ -210,4 +188,3 @@ body {
     color: var(--color-texto-secundario);
 }
 
->>>>>>> 83516ef783a5a159a2ab03d07b9c4c89d3680542
