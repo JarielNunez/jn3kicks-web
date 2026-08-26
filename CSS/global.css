@@ -111,13 +111,13 @@ a {
 .boton--primario:hover {
   opacity: 0.85;
 
-}
+}e
 
 .hero__imagen {
    aspect-ratio: 4 / 3;
-   background-color: var(--color-fondo-elevado);
-   border: 1px dashed var(--color-borde);
+   background-color: #f7f7f7;
    border-radius: 14px;
+   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
    display: flex;
    align-items: center;
    justify-content: center;
@@ -139,6 +139,29 @@ a {
     font-weight: 700;
 }
 
+<<<<<<< HEAD
+=======
+css/global.css
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 48px;
+}
+>>>>>>> 1e125a48c9c67fd2182d422db444a9df9acbae56
 
 /* DESTACADOS */
 
@@ -161,18 +184,25 @@ a {
 }
 
 .card {
-    background-color: var(--color-fondo-elevado);
+    background-color: var(--color-fondo);
     border: 1px solid var(--color-borde);
     border-radius: 14px;
     padding: 24px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.14);
 }
 
 .card__imagen {
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    background-color: var(--color-fondo);
+    background-color: #f7f7f7;
     border-radius: 8px;
     margin-bottom: 16px;
 }
@@ -185,6 +215,56 @@ a {
 
 .card__precio {
     font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-acento-secundario);
+}
+
+.footer {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 48px;
+}
+
+.footer__confianza {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 32px;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.footer__item {
+    font-size: 0.9rem;
     color: var(--color-texto-secundario);
 }
 
+<<<<<<< HEAD
+=======
+.footer__info {
+   text-align: center;
+   padding: 32px;
+}
+
+.footer__info p {
+    font-size: 0.85rem;
+    color: var(--color-texto-secundario);
+}
+
+.header {
+    background-color: #1a1a1a;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.header .logo {
+    color: #ffffff;
+}
+
+.header .nav__links a {
+    color: #b3b3b3;
+}
+
+.header .nav__links a:hover {
+    color: #ffffff;
+}
+>>>>>>> 1e125a48c9c67fd2182d422db444a9df9acbae56
