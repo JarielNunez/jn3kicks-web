@@ -185,7 +185,14 @@ body {
     border: 1px solid var(--color-borde);
     border-radius: 14px;
     padding: 24px;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: var(--color-acento-secundario);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
 }
 
 .card__imagen {
@@ -205,6 +212,37 @@ body {
 
 .card__precio {
     font-size: 0.9rem;
+    font-weight: 700;
     color: var(--color-acento-secundario);
+}
+
+.footer {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 48px;
+}
+
+.footer__confianza {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 32px;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.footer__item {
+    font-size: 0.9rem;
+    color: var(--color-texto-secundario);
+}
+
+.footer__info {
+   text-align: center;
+   padding: 32px;
+}
+
+.footer__info p {
+    font-size: 0.85rem;
+    color: var(--color-texto-secundario);
 }
 
