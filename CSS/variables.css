@@ -1,0 +1,28 @@
+ css/variables.css
+:root {
+    --color-fondo: #ffffff ;
+    --color-texto: hsl(0, 0%, 100%) ;
+    --color-texto-secundario: #9a9a9a;
+    --color-acento: #5280ff;
+    --color-borde: #2b2b2b;
+    --fuente-principal: 'Inter', sans-serif;
+    --fuente-display: 'Space Grotesk', sans-serif;
+    --color-barra-navegador: #1a1a1a;
+}
+
+
+
+:root {
+    --color-fondo: hsl(0, 0%, 100%);
+    --color-fondo-elevado: #9a9a9a;
+    --color-texto:  oklab(0% 0 0);
+    --color-texto-secundario: #9a9a9a;
+    --color-acento: #5280ff;
+    --color-acento-secundario: #e11d2e;
+    --color-borde: #2b2b2b;
+    --fuente-principal: 'Inter', sans-serif;
+    --fuente-display: 'Space Grotesk', sans-serif;
+
+}
+
+

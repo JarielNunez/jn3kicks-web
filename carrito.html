@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras - JN3 Kicks</title>
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/carrito.css">
+</head>
+<body>
+
+    <!-- Encabezado principal -->
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="nav__logo">JN3 Kicks</a>
+    
+            <ul class="nav__menu">
+                <li class="nav__item"><a href="index.html" class="nav__link">Inicio</a></li>
+                <li class="nav__item"><a href="catalogo.html" class="nav__link">Catálogo</a></li>
+                <li class="nav__item"><a href="nosotros.html" class="nav__link">Nosotros</a></li>
+                <li class="nav__item"><a href="carrito.html" class="nav__link nav__link--activo">Carrito</a></li>
+        </ul>
+    </nav>
+    </header>
+
+    <!-- Contenido principal del carrito -->
+    <main class="carrito-pagina">
+        <h1 class="carrito-pagina__titulo">Tu Carrito de Compras</h1>
+        
+        <div class="carrito-pagina__contenedor">
+            
+            <!-- Listado de articulos del carrito -->
+            <div class="carrito-pagina__lista">
+                
+                <!-- Artículo 1 -->
+                <div class="carrito-item">
+                    <div class="carrito-item__imagen"></div>
+                    
+                    <div class="carrito-item__info">
+                        <span class="carrito-item__nombre">Jordan 1 Retro</span>
+                        <span class="carrito-item__precio">$35.90</span>
+                    </div>
+                    
+                    <div class="carrito-item__controles">
+                        <button class="carrito-item__btn">&lt;</button>
+                        <span class="carrito-item__cantidad">1</span>
+                        <button class="carrito-item__btn">&gt;</button>
+                    </div>
+                    
+                    <a href="#" class="carrito-item__eliminar">Eliminar</a>
+                </div>
+
+                <!-- Artículo 2 -->
+                <div class="carrito-item">
+                    <div class="carrito-item__imagen"></div>
+                    
+                    <div class="carrito-item__info">
+                        <span class="carrito-item__nombre">Nike Air Max</span>
+                        <span class="carrito-item__precio">$35.90</span>
+                    </div>
+                    
+                    <div class="carrito-item__controles">
+                        <button class="carrito-item__btn">&lt;</button>
+                        <span class="carrito-item__cantidad">1</span>
+                        <button class="carrito-item__btn">&gt;</button>
+                    </div>
+                    
+                    <a href="#" class="carrito-item__eliminar">Eliminar</a>
+                </div>
+
+            </div>
+
+            <!-- Resumen de costos de la orden -->
+            <div class="carrito-resumen">
+                <h2 class="carrito-resumen__titulo">Resumen de la Orden</h2>
+                
+                <div class="carrito-resumen__fila">
+                    <span>Subtotal:</span>
+                    <span>$5000</span>
+                </div>
+                
+                <div class="carrito-resumen__fila">
+                    <span>Envío:</span>
+                    <span>$1000</span>
+                </div>
+                
+                <div class="carrito-resumen__fila carrito-resumen__fila--total">
+                    <span>Total:</span>
+                    <span>$6000</span>
+                </div>
+                
+                <button class="carrito-resumen__boton">Proceder al Pago</button>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Pie de página con detalles institucionales -->
+    <footer class="footer">
+        <div class="footer__garantias">
+            <span> Rendimiento y estilo</span>
+            <span> Envío nacional</span>
+            <span> Síguenos @jn3kicks</span>
+        </div>
+
+        <p>&copy; 2026 JN3 Kicks - San Francisco de Macorís, RD</p>
+        
+        <div class="footer__enlaces">
+            <a href="terminos.html" class="footer__link">Términos y Condiciones</a>
+            <a href="soporte.html" class="footer__link">Soporte</a>
+        </div>
+    </footer>
+
+</body>
+</html>
+
