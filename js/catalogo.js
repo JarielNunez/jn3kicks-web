@@ -9,15 +9,28 @@ document.addEventListener('DOMContentLoaded', () => {
     // ---- Arreglo de productos a partir del DOM ----
     // Cada producto guarda una referencia a su elemento HTML (para
     // mostrarlo/ocultarlo) y sus datos para poder filtrar.
-    const productos = Array.from(document.querySelectorAll('.producto')).map(elemento => ({
-        elemento,
-        marca: elemento.dataset.marca || '',
-        genero: elemento.dataset.genero || '',
-        categoria: elemento.dataset.categoria || ''
-    }));
+    const productos = Array.from(document.querySelectorAll('.producto')).map(elemento => {
+        const textoPrecio = elemento.querySelector('.producto__precio').textContent;
+        const nombre = elemento.querySelector('.producto__titulo').textContent.trim();
 
-    // ---- Referencia al contenedor de filtros ----
+        return {
+            elemento,
+            marca: elemento.dataset.marca || '',
+            genero: elemento.dataset.genero || '',
+            categoria: elemento.dataset.categoria || '',
+            precio: parseFloat(textoPrecio.replace(/[^0-9.]/g, '')) || 0,
+            nombre
+        };
+    });
+
+    // Guardamos el orden original (tal como vienen en el HTML) para
+    // poder volver a "Productos destacados".
+    const ordenOriginal = [...productos];
+
+    // ---- Referencias a filtros y al selector de orden ----
     const filtros = document.querySelector('.filtros');
+    const selectOrden = document.querySelector('#orden');
+    const contenedorProductos = document.querySelector('.catalogo__productos');
 
     // ---- Función que lee qué checkboxes están marcados ----
     // Devuelve un objeto como:
@@ -79,11 +92,47 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // ---- cambios en los checkboxes (delegación de eventos) ----
+    // ---- Función que ordena las tarjetas según la opción elegida ----
+    function ordenarProductos() {
+        const criterio = selectOrden.value;
+        let productosOrdenados;
+
+        switch (criterio) {
+            case 'precio-menor':
+                productosOrdenados = [...productos].sort((a, b) => a.precio - b.precio);
+                break;
+
+            case 'precio-mayor':
+                productosOrdenados = [...productos].sort((a, b) => b.precio - a.precio);
+                break;
+
+            case 'nombre':
+                productosOrdenados = [...productos].sort((a, b) =>
+                    a.nombre.localeCompare(b.nombre, 'es', { sensitivity: 'base' })
+                );
+                break;
+
+            case 'destacados':
+            default:
+                productosOrdenados = ordenOriginal;
+                break;
+        }
+
+        // appendChild sobre un nodo que ya existe en el documento lo
+        // MUEVE en vez de duplicarlo, así que es seguro reutilizarlo así.
+        productosOrdenados.forEach(producto => {
+            contenedorProductos.appendChild(producto.elemento);
+        });
+    }
+
+    // ---- Cambios en los checkboxes (delegación de eventos) ----
     filtros.addEventListener('change', (evento) => {
         if (evento.target.classList.contains('filtros__checkbox')) {
             filtrarProductos();
         }
     });
+
+    // ---- Cambio en el select de "Ordenar por" ----
+    selectOrden.addEventListener('change', ordenarProductos);
 
 });
