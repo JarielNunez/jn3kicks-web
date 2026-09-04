@@ -6,7 +6,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ---- 1. Construimos el arreglo de productos a partir del DOM ----
+    // ---- Arreglo de productos a partir del DOM ----
     // Cada producto guarda una referencia a su elemento HTML (para
     // mostrarlo/ocultarlo) y sus datos para poder filtrar.
     const productos = Array.from(document.querySelectorAll('.producto')).map(elemento => ({
@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
         categoria: elemento.dataset.categoria || ''
     }));
 
-    // ---- 2. Referencia al contenedor de filtros ----
+    // ---- Referencia al contenedor de filtros ----
     const filtros = document.querySelector('.filtros');
 
-    // ---- 3. Función que lee qué checkboxes están marcados ----
+    // ---- Función que lee qué checkboxes están marcados ----
     // Devuelve un objeto como:
     // { marca: ['nike', 'converse'], genero: ['hombre'], categoria: [] }
     function obtenerFiltrosActivos() {
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return activos;
     }
 
-    // ---- 4. Función que aplica el filtro sobre el arreglo ----
+    // ---- Función que aplica el filtro sobre el arreglo ----
     function filtrarProductos() {
         const activos = obtenerFiltrosActivos();
 
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mostrarMensajeSiNoHayResultados();
     }
 
-    // ---- 5. Mensaje opcional cuando el filtro no arroja resultados ----
+    // ---- Mensaje opcional cuando el filtro no arroja resultados ----
     function mostrarMensajeSiNoHayResultados() {
         const contenedor = document.querySelector('.catalogo__productos');
         let mensaje = document.querySelector('.catalogo__sin-resultados');
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // ---- 6. Escuchamos los cambios en los checkboxes (delegación de eventos) ----
+    // ---- cambios en los checkboxes (delegación de eventos) ----
     filtros.addEventListener('change', (evento) => {
         if (evento.target.classList.contains('filtros__checkbox')) {
             filtrarProductos();
