@@ -32,7 +32,13 @@
             <h2 class="buscador__titulo">Buscar productos</h2>
             <form class="buscador__form" action="#" method="get">
                 <label class="buscador__label" for="buscar">Buscar tenis:</label>
-                <input class="buscador__input" type="search" id="buscar" name="buscar" placeholder="Escribe el nombre del tenis">
+
+                <div class="buscador__campo">
+                    <input class="buscador__input" type="search" id="buscar" ...>
+                    <span class="buscador__error" role="alert" style="display: none;"></span>
+                </div>
+
+                <!-- <input class="buscador__input" type="search" id="buscar" name="buscar" placeholder="Escribe el nombre del tenis"> -->
                 <button class="buscador__boton" type="submit">Buscar</button>
             </form>
         </section>

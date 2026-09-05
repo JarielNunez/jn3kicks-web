@@ -171,13 +171,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // romper el resto del script.
     if (formBuscador && inputBuscar) {
  
+        // Envolvemos el input en un contenedor propio (columna), para
+        // que el mensaje de error quede debajo SOLO del input, y no
+        // afecte la fila completa del formulario (label + botón).
+        const contenedorInput = document.createElement('div');
+        contenedorInput.className = 'buscador__campo';
+        inputBuscar.parentNode.insertBefore(contenedorInput, inputBuscar);
+        contenedorInput.appendChild(inputBuscar); 
+
+
         // Creamos el elemento donde se mostrará el mensaje de error,
-        // justo después del input, y lo dejamos oculto por defecto.
+        // dentro del contenedor, justo después del input.
         const mensajeError = document.createElement('span');
         mensajeError.className = 'buscador__error';
         mensajeError.setAttribute('role', 'alert');
         mensajeError.style.display = 'none';
-        inputBuscar.insertAdjacentElement('afterend', mensajeError);
+        contenedorInput.appendChild(mensajeError);
  
         // Asociamos el input con el mensaje de error para accesibilidad.
         mensajeError.id = 'buscar-error';
