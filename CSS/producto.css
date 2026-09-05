@@ -120,6 +120,31 @@ header nav {
     background-color: #f5f5f5;
     border: 1px solid #e0e0e0;
 }
+producto__miniaturas {
+    display: flex;
+    gap: 12px;
+}
+
+.producto__miniatura {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    opacity: 0.6;
+    transition: all 0.2s ease;
+    background-color: #f5f5f5;
+}
+
+.producto__miniatura:hover {
+    opacity: 1;
+}
+
+.producto__miniatura--activa {
+    border: 2px solid #121212;
+    opacity: 1;
+}
 
 .producto__especificaciones {
     background-color: #f5f5f5;
