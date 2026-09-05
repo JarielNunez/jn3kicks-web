@@ -99,6 +99,17 @@ body {
     background-color: #333333;
 }
 
+.buscador__error {
+    display: block;
+    color: #c0392b;
+    font-size: 0.875rem;
+    margin-top: 4px;
+}
+
+.buscador__input--error {
+    border-color: #c0392b;
+}
+
 /* ===== Layout general del catálogo (filtros + productos) ===== */
 .catalogo {
     padding: 0 40px 40px;

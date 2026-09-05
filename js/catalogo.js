@@ -32,6 +32,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const selectOrden = document.querySelector('#orden');
     const contenedorProductos = document.querySelector('.catalogo__productos');
 
+     // ---- Referencias al buscador ----
+    const formBuscador = document.querySelector('.buscador__form');
+    const inputBuscar = document.querySelector('#buscar');
+
     // ---- Función que lee qué checkboxes están marcados ----
     // Devuelve un objeto como:
     // { marca: ['nike', 'converse'], genero: ['hombre'], categoria: [] }
@@ -65,12 +69,28 @@ document.addEventListener('DOMContentLoaded', () => {
             const coincideCategoria =
                 activos.categoria.length === 0 || activos.categoria.includes(producto.categoria);
 
-            const debeMostrarse = coincideMarca && coincideGenero && coincideCategoria;
-
+             // Coincidencia con el texto de búsqueda (si hay alguno activo).
+            // Se busca el texto dentro del nombre del producto, sin
+            // importar mayúsculas/minúsculas ni acentos.
+            const coincideBusqueda =
+                textoBusquedaActivo === '' ||
+                normalizarTexto(producto.nombre).includes(normalizarTexto(textoBusquedaActivo));
+ 
+            const debeMostrarse =
+                coincideMarca && coincideGenero && coincideCategoria && coincideBusqueda;
+ 
             producto.elemento.style.display = debeMostrarse ? '' : 'none';
         });
 
         mostrarMensajeSiNoHayResultados();
+    }
+
+     // ---- Quita acentos y pasa a minúsculas para comparar textos ----
+    function normalizarTexto(texto) {
+        return texto
+            .toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '');
     }
 
     // ---- Mensaje opcional cuando el filtro no arroja resultados ----
@@ -135,4 +155,102 @@ document.addEventListener('DOMContentLoaded', () => {
     // ---- Cambio en el select de "Ordenar por" ----
     selectOrden.addEventListener('change', ordenarProductos);
 
+  
+    // ==========================================================
+    // VALIDACIÓN DEL BUSCADOR 
+    // - Formato correcto (solo letras, números y espacios).
+    // - Mensaje de error sin recargar la página.
+    // ==========================================================
+ 
+    // Expresión regular de formato válido: letras (con acentos/ñ),
+    // números y espacios. Se acepta uno o más caracteres.
+    const FORMATO_VALIDO = /^[a-zA-ZÀ-ÿ0-9\s]+$/;
+ 
+    // Este bloque completo solo se arma si el form y el input existen
+    // en el HTML. Si falta alguno, avisamos por consola en vez de
+    // romper el resto del script.
+    if (formBuscador && inputBuscar) {
+ 
+        // Creamos el elemento donde se mostrará el mensaje de error,
+        // justo después del input, y lo dejamos oculto por defecto.
+        const mensajeError = document.createElement('span');
+        mensajeError.className = 'buscador__error';
+        mensajeError.setAttribute('role', 'alert');
+        mensajeError.style.display = 'none';
+        inputBuscar.insertAdjacentElement('afterend', mensajeError);
+ 
+        // Asociamos el input con el mensaje de error para accesibilidad.
+        mensajeError.id = 'buscar-error';
+        inputBuscar.setAttribute('aria-describedby', 'buscar-error');
+ 
+        // ---- Muestra un mensaje de error debajo del input ----
+        function mostrarError(texto) {
+            mensajeError.textContent = texto;
+            mensajeError.style.display = 'block';
+            inputBuscar.classList.add('buscador__input--error');
+            inputBuscar.setAttribute('aria-invalid', 'true');
+        }
+ 
+        // ---- Limpia el mensaje de error ----
+        function limpiarError() {
+            mensajeError.textContent = '';
+            mensajeError.style.display = 'none';
+            inputBuscar.classList.remove('buscador__input--error');
+            inputBuscar.removeAttribute('aria-invalid');
+        }
+ 
+        // ---- Valida el valor actual del input ----
+        // Devuelve true si es válido, false si no (y muestra el error).
+        function validarBusqueda(valor) {
+            const valorLimpio = valor.trim();
+ 
+            if (valorLimpio === '') {
+                mostrarError('Por favor escribe algo para buscar.');
+                return false;
+            }
+ 
+            if (!FORMATO_VALIDO.test(valorLimpio)) {
+                mostrarError('Usa solo letras, números y espacios (sin símbolos).');
+                return false;
+            }
+ 
+            limpiarError();
+            return true;
+        }
+ 
+        // ---- Envío del formulario de búsqueda ----
+        formBuscador.addEventListener('submit', (evento) => {
+            evento.preventDefault(); // Nunca recargamos la página.
+ 
+            const valor = inputBuscar.value;
+ 
+            if (!validarBusqueda(valor)) {
+                inputBuscar.focus();
+                return;
+            }
+ 
+            textoBusquedaActivo = valor.trim();
+            filtrarProductos();
+        });
+ 
+        // ---- Mientras el usuario escribe, quitamos el error si corrige ----
+        inputBuscar.addEventListener('input', () => {
+            if (mensajeError.style.display === 'block') {
+                const valorLimpio = inputBuscar.value.trim();
+                if (valorLimpio !== '' && FORMATO_VALIDO.test(valorLimpio)) {
+                    limpiarError();
+                }
+            }
+ 
+            // Si el usuario borra todo el campo, volvemos a mostrar
+            // todos los productos (según los filtros de checkboxes).
+            if (inputBuscar.value.trim() === '' && textoBusquedaActivo !== '') {
+                textoBusquedaActivo = '';
+                filtrarProductos();
+            }
+        });
+ 
+    } else {
+        console.error('catalogo.js: no se encontró ".buscador__form" o "#buscar" en el HTML. El buscador no va a funcionar.');
+    } 
 });
