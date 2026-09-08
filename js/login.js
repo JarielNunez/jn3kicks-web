@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const rememberCheckbox = document.querySelector('input[name="remember"]');
 
   // Redirección tras login exitoso
-  const REDIRECT_URL = "../catalogo.html";
+  const REDIRECT_URL = "../index.html";
 
   // Reglas de validación
   const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
