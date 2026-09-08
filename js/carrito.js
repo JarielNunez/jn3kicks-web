@@ -16,6 +16,12 @@ function actualizarTotales() {
     articulos.forEach(function(articulo) {
         const precioTexto = articulo.querySelector(".carrito-item__precio").textContent;
         const cantidadTexto = articulo.querySelector(".carrito-item__cantidad").textContent;
+        const botonEliminar = articulo.querySelector(".carrito-item__eliminar");
+        botonEliminar.addEventListener("click",function(evento){
+            evento.preventDefault(); // Evita que el enlace haga su acción por defecto
+            articulo.remove(); // Elimina el artículo del DOM
+            actualizarTotales(); // Recalcula los totales después de eliminar el artículo
+        });
 
         const precio = limpiarPrecio(precioTexto);
         const cantidad = parseInt(cantidadTexto);
@@ -58,6 +64,12 @@ articulos.forEach(function(articulo) {
         }
     });
 
+});
+
+const botonPagar = document.querySelector(".carrito-resumen__boton");
+
+botonPagar.addEventListener("click", function() {
+    alert("¡Gracias por tu compra! Total a pagar: " + document.querySelector(".carrito-resumen__valor-total").textContent);
 });
 
 actualizarTotales(); // Calcula los totales correctos al cargar la página
