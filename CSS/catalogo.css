@@ -212,14 +212,14 @@ body {
 }
 
 .producto__imagen {
-    width: 100%;
-    height: 160px;
-    object-fit: contain;
+    width: 50%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center;
     border-radius: 8px;
     background-color: #ffffff;
     margin-bottom: 12px;
 }
-
 .producto__titulo {
     font-size: 15px;
     font-weight: 500;
