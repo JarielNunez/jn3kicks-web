@@ -1,5 +1,5 @@
 // ----- CARRITO (Jariel) -----
-
+–
 const articulos = document.querySelectorAll(".carrito-item");
 
 // Convierte un texto de precio como "$35.90" a un número: 35.90

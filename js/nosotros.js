@@ -83,7 +83,7 @@ formulario.addEventListener("submit", function (event) {
     if (formularioValido) {
 
         formSuccess.textContent =
-            "¡Mensaje enviado correctamente! Gracias por contactar con JNS KICKS.";
+            "¡Mensaje enviado correctamente! Gracias por contactar con JN3 KICKS.";
 
         formulario.reset();
     }
