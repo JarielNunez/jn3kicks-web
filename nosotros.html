@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Nosotros | JNS KICKS</title>
+    <title>Nosotros | JN3 KICKS</title>
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/nosotros.css">
 </head>
@@ -17,7 +17,7 @@
         <nav class="site-header__nav">
 
             <a href="index.html" class="site-header__logo">
-                JNS KICKS
+                JN3 KICKS
             </a>
 
             <ul class="site-header__menu">
@@ -30,7 +30,7 @@
 
                 <li class="site-header__item">
                     <a href="nosotros.html"
-                       class="site-header__link site-header__link--active">
+                    class="site-header__link site-header__link--active">
                         Nosotros
                     </a>
                 </li>
@@ -185,7 +185,7 @@
                     <li class="site-footer__item">Teléfono: 849-410-0219</li>
                     <li class="site-footer__item">Correo: info@jnskicks.com</li>
                     <li class="site-footer__item">Síguenos @jnskicks</li>
-                 </ul>
+                </ul>
             </section>
 
         </div>
@@ -198,6 +198,132 @@
 
     </footer>
 
+        <script src="js/nosotros.js"></script>
+
+
 </body>
 
-</html>
+</html><!-- ===== FORMULARIO DE CONTACTO ===== -->
+
+<section class="about__contact">
+
+    <h2 class="about__title">
+        Contáctanos
+    </h2>
+
+    <p class="about__text">
+        ¿Tienes alguna pregunta? Completa el siguiente
+        formulario y nos pondremos en contacto contigo.
+    </p>
+
+    <form class="contact-form" id="contactForm" novalidate>
+
+        <div class="contact-form__group">
+            <label for="nombre" class="contact-form__label">
+                Nombre completo
+            </label>
+
+            <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="contact-form__input"
+                placeholder="Ej. Juan Pérez"
+                minlength="3"
+                maxlength="50"
+                required
+            >
+
+            <span id="nombreError" class="contact-form__error"></span>
+        </div>
+
+        <div class="contact-form__group">
+            <label for="correo" class="contact-form__label">
+                Correo electrónico
+            </label>
+
+            <input
+                type="email"
+                id="correo"
+                name="correo"
+                class="contact-form__input"
+                placeholder="ejemplo@correo.com"
+                required
+            >
+
+            <span id="correoError" class="contact-form__error"></span>
+        </div>
+
+        <div class="contact-form__group">
+            <label for="telefono" class="contact-form__label">
+                Teléfono
+            </label>
+
+            <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="contact-form__input"
+                placeholder="849-410-0219"
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                required
+            >
+
+            <span id="telefonoError" class="contact-form__error"></span>
+        </div>
+
+        <div class="contact-form__group">
+            <label for="asunto" class="contact-form__label">
+                Asunto
+            </label>
+
+            <select
+                id="asunto"
+                name="asunto"
+                class="contact-form__input"
+                required
+            >
+                <option value="">Selecciona un asunto</option>
+                <option value="producto">Consulta sobre producto</option>
+                <option value="pedido">Consulta sobre pedido</option>
+                <option value="devolucion">Devolución</option>
+                <option value="otro">Otro</option>
+            </select>
+
+            <span id="asuntoError" class="contact-form__error"></span>
+        </div>
+
+        <div class="contact-form__group">
+            <label for="mensaje" class="contact-form__label">
+                Mensaje
+            </label>
+
+            <textarea
+                id="mensaje"
+                name="mensaje"
+                class="contact-form__textarea"
+                rows="6"
+                minlength="10"
+                maxlength="500"
+                placeholder="Escribe tu mensaje..."
+                required
+            ></textarea>
+
+            <span id="mensajeError" class="contact-form__error"></span>
+        </div>
+
+        <button
+            type="submit"
+            class="contact-form__button">
+            Enviar mensaje
+        </button>
+
+        <p
+            id="formSuccess"
+            class="contact-form__success"
+            role="alert">
+        </p>
+
+    </form>
+
+</section>

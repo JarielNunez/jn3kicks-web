@@ -69,6 +69,8 @@ body {
 
 .buscador__form {
     display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
     gap: 10px;
 }
 
@@ -77,7 +79,6 @@ body {
 }
 
 .buscador__input {
-    flex: 1;
     padding: 12px 14px;
     border-radius: 8px;
     border: 1px solid #cfcfcf;
@@ -97,6 +98,22 @@ body {
 
 .buscador__boton:hover {
     background-color: #333333;
+}
+
+.buscador__campo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.buscador__error {
+    color: #c0392b;
+    font-size: 0.875rem;
+    margin-top: 4px;
+}
+
+.buscador__input--error {
+    border-color: #c0392b;
 }
 
 /* ===== Layout general del catálogo (filtros + productos) ===== */
@@ -195,14 +212,14 @@ body {
 }
 
 .producto__imagen {
-    width: 100%;
-    height: 160px;
-    object-fit: contain;
+    width: 50%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center;
     border-radius: 8px;
     background-color: #ffffff;
     margin-bottom: 12px;
 }
-
 .producto__titulo {
     font-size: 15px;
     font-weight: 500;

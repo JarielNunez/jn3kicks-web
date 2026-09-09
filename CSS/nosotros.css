@@ -170,3 +170,99 @@ ul {
   padding: 24px 48px;
   /* sin border-top, ya está en .site-footer__content */
 }
+/* ===== FORMULARIO DE CONTACTO ===== */
+
+.about__contact {
+  margin-top: 70px;
+  padding: 40px;
+  background-color: #f7f7f7;
+  border-radius: 12px;
+}
+
+.about__contact .about__text {
+  max-width: 650px;
+  margin: 0 auto 30px auto;
+}
+
+.contact-form {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.contact-form__group {
+  margin-bottom: 20px;
+}
+
+.contact-form__label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.contact-form__input,
+.contact-form__textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  font-family: var(--fuente-principal);
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.contact-form__input:focus,
+.contact-form__textarea:focus {
+  border-color: #1a1a1a;
+}
+
+.contact-form__textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.contact-form__error {
+  display: block;
+  min-height: 18px;
+  margin-top: 5px;
+  font-size: 13px;
+  color: #d32f2f;
+}
+
+.contact-form__button {
+  width: 100%;
+  padding: 13px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  font-family: var(--fuente-principal);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.contact-form__button:hover {
+  background-color: #333333;
+}
+
+.contact-form__success {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2e7d32;
+}
+
+@media (max-width: 600px) {
+
+  .about__contact {
+    padding: 25px 20px;
+  }
+
+}
