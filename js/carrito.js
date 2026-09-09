@@ -1,5 +1,5 @@
 // ----- CARRITO (Jariel) -----
-–
+
 const articulos = document.querySelectorAll(".carrito-item");
 
 // Convierte un texto de precio como "$35.90" a un número: 35.90
@@ -16,13 +16,6 @@ function actualizarTotales() {
     articulos.forEach(function(articulo) {
         const precioTexto = articulo.querySelector(".carrito-item__precio").textContent;
         const cantidadTexto = articulo.querySelector(".carrito-item__cantidad").textContent;
-        const botonEliminar = articulo.querySelector(".carrito-item__eliminar");
-        botonEliminar.addEventListener("click",function(evento){
-            evento.preventDefault(); // Evita que el enlace haga su acción por defecto
-            articulo.remove(); // Elimina el artículo del DOM
-            actualizarTotales(); // Recalcula los totales después de eliminar el artículo
-        });
-
         const precio = limpiarPrecio(precioTexto);
         const cantidad = parseInt(cantidadTexto);
 
@@ -44,6 +37,7 @@ articulos.forEach(function(articulo) {
     const botonRestar = botones[0];
     const botonSumar = botones[1];
     const cantidadTexto = articulo.querySelector(".carrito-item__cantidad");
+    const botonEliminar = articulo.querySelector(".carrito-item__eliminar");
 
     // Evento del botón sumar
     botonSumar.addEventListener("click", function() {
@@ -63,6 +57,12 @@ articulos.forEach(function(articulo) {
             actualizarTotales();
         }
     });
+    // Evento del boton eliminar
+    botonEliminar.addEventListener("click",function(evento){
+        evento.preventDefault(); // Evita que el enlace haga su acción por defecto
+        articulo.remove(); // Elimina el artículo del DOM
+        actualizarTotales(); // Recalcula los totales después de eliminar el artículo
+        });
 
 });
 

@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const productos = Array.from(document.querySelectorAll('.producto')).map(elemento => {
         const textoPrecio = elemento.querySelector('.producto__precio').textContent;
         const nombre = elemento.querySelector('.producto__titulo').textContent.trim();
-
+        
         return {
             elemento,
             marca: elemento.dataset.marca || '',
@@ -35,6 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
      // ---- Referencias al buscador ----
     const formBuscador = document.querySelector('.buscador__form');
     const inputBuscar = document.querySelector('#buscar');
+    let textoBusquedaActivo = '';
+
 
     // ---- Función que lee qué checkboxes están marcados ----
     // Devuelve un objeto como:
