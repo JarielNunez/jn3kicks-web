@@ -1,4 +1,4 @@
--- Base de datos JN3 KICKS
+-- Base de datos jn3kicks
 -- Tabla de usuarios registrados
 CREATE TABLE usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
