@@ -1,89 +1,38 @@
 /* ========================================================
    LOGIN.JS - JN3 KICKS
-   Manejo de inicio de sesión usando localStorage
-   (Sin backend / sin JWT por el momento)
+   Manejo de inicio de sesión conectado a la API PHP
+   (api/usuarios/login.php). La sesión ahora vive en el
+   SERVIDOR (PHP $_SESSION + cookie PHPSESSID), no en
+   localStorage ni sessionStorage.
 
-   ESTRUCTURA ESPERADA EN localStorage:
-   key: "usuarios"
-   value: Array de objetos:
-   [
-     {
-       nombre: "Juan Pérez",
-       email: "juan@correo.com",
-       password: "123456",       // texto plano (temporal, sin backend)
-       rol: "cliente",           // "admin" | "cliente"
-       fechaRegistro: "2026-09-08T10:00:00.000Z"
-     },
-     ...
-   ]
+   Cómo funciona la sesión ahora:
+   1. El navegador manda correo + contraseña por fetch (POST).
+   2. login.php verifica contra la BD con password_verify()
+      y, si es correcto, abre una sesión PHP.
+   3. El servidor responde con Set-Cookie: PHPSESSID=...
+      (el navegador la guarda solo; nosotros no la tocamos).
+   4. En cualquier otra página, para saber "¿hay alguien
+      logueado?", se llama a api/usuarios/verificar_sesion.php
+      (siempre con { credentials: "include" } para que la
+      cookie de sesión viaje con la petición).
+   5. Para cerrar sesión, se llama a api/usuarios/logout.php.
 
-   NOTA PARA EL EQUIPO:
-   Al cargar esta página por primera vez (o si borran el localStorage),
-   se crean automáticamente 2 usuarios de prueba (ver
-   inicializarUsuariosPorDefecto). Úsenlos para probar el login sin
-   tener que escribir nada manualmente en la consola:
-
-     ADMIN   -> admin@jn3kicks.com   / admin123
-     CLIENTE -> cliente@jn3kicks.com / cliente123
+   AJUSTA LA RUTA si tu estructura de carpetas es distinta:
+   este archivo asume que vive en algo como /pages/login.js
+   y que la API está en /api/usuarios/... (por eso "../api").
    ======================================================== */
 
-/**
- * Crea usuarios de prueba en localStorage si aún no existe la key
- * "usuarios" (o si está vacía). Así el equipo siempre tiene con qué
- * probar el login sin depender de un register.js todavía.
- *
- * Se ejecuta ANTES de cualquier otra cosa, fuera del DOMContentLoaded,
- * para que los datos ya estén listos apenas se cargue el script.
- */
-function inicializarUsuariosPorDefecto() {
-  const usuariosExistentes = localStorage.getItem("usuarios");
-  const usuarios = usuariosExistentes ? JSON.parse(usuariosExistentes) : [];
-
-  if (Array.isArray(usuarios) && usuarios.length > 0) {
-    // Ya hay usuarios guardados, no tocamos nada.
-    return;
-  }
-
-  const usuariosPorDefecto = [
-    {
-      nombre: "Administrador",
-      email: "admin@jn3kicks.com",
-      password: "admin123",
-      rol: "admin",
-      fechaRegistro: new Date().toISOString(),
-    },
-    {
-      nombre: "Cliente Demo",
-      email: "cliente@jn3kicks.com",
-      password: "cliente123",
-      rol: "cliente",
-      fechaRegistro: new Date().toISOString(),
-    },
-  ];
-
-  localStorage.setItem("usuarios", JSON.stringify(usuariosPorDefecto));
-  console.info(
-    "%c[JN3 KICKS] Usuarios de prueba creados en localStorage:",
-    "color: #2563eb; font-weight: bold;",
-    "\n  ADMIN   -> admin@jn3kicks.com / admin123",
-    "\n  CLIENTE -> cliente@jn3kicks.com / cliente123"
-  );
-}
-
-// Se ejecuta apenas se carga el script, sin esperar el DOMContentLoaded,
-// porque no depende de ningún elemento del HTML.
-inicializarUsuariosPorDefecto();
+const API_LOGIN_URL = "/jn3kicks-web/php/login/login.php";
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("loginForm");
   const emailInput = document.getElementById("email");
   const passwordInput = document.getElementById("password");
-  const rememberCheckbox = document.querySelector('input[name="remember"]');
 
   // Redirección tras login exitoso
-  const REDIRECT_URL = "../index.html";
+  const REDIRECT_URL = "/jn3kicks-web/index.html";
 
-  // Reglas de validación
+  // Reglas de validación (formato, antes de llamar a la API)
   const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const PASSWORD_MIN_LENGTH = 6;
 
@@ -141,14 +90,12 @@ document.addEventListener("DOMContentLoaded", () => {
     errorEl.textContent = mensaje;
     errorEl.setAttribute("role", "alert");
 
-    const submitButton = form.querySelector(
-      ".login-card__button--primary"
-    );
+    const submitButton = form.querySelector(".login-card__button--primary");
     submitButton.insertAdjacentElement("beforebegin", errorEl);
   }
 
   // ------------------------------------------------------
-  // Validaciones
+  // Validaciones de formato (frontend)
   // ------------------------------------------------------
 
   function validarEmail(email) {
@@ -172,91 +119,54 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ------------------------------------------------------
-  // Acceso a datos (localStorage)
+  // Llamada a la API de login
   // ------------------------------------------------------
 
   /**
-   * Obtiene el array de usuarios guardado en localStorage.
-   * Si no existe o está corrupto, devuelve un array vacío.
+   * Envía correo y contraseña a login.php. La API es quien decide
+   * si son correctos (comparando contra el hash guardado con
+   * password_verify), nunca lo validamos en el frontend.
+   *
+   * credentials: "include" es indispensable: le dice al navegador
+   * que acepte y reenvíe la cookie de sesión (PHPSESSID) aunque el
+   * fetch sea a otra ruta/puerto. Sin esto, la sesión no persiste.
    */
-  function obtenerUsuarios() {
+  async function iniciarSesionEnAPI(correo, contrasena) {
+    const respuesta = await fetch(API_LOGIN_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+      body: JSON.stringify({ correo, contrasena }),
+    });
+
+    let datos;
     try {
-      const data = localStorage.getItem("usuarios");
-      const usuarios = data ? JSON.parse(data) : [];
-      return Array.isArray(usuarios) ? usuarios : [];
+      datos = await respuesta.json();
     } catch (error) {
-      console.error("Error al leer usuarios de localStorage:", error);
-      return [];
+      throw new Error(
+        "El servidor no respondió correctamente. Verifica que XAMPP/Apache esté corriendo."
+      );
     }
-  }
 
-  /**
-   * Busca un usuario por email (case-insensitive).
-   */
-  function buscarUsuarioPorEmail(email, usuarios) {
-    const emailNormalizado = email.trim().toLowerCase();
-    return usuarios.find(
-      (u) => u.email && u.email.trim().toLowerCase() === emailNormalizado
-    );
-  }
+    if (!respuesta.ok || !datos.exito) {
+      throw new Error(datos.mensaje || "Correo o contraseña incorrectos.");
+    }
 
-  // ------------------------------------------------------
-  // Manejo de sesión
-  // ------------------------------------------------------
-
-  /**
-   * Guarda la sesión activa. Usa localStorage si "recordar" está
-   * marcado (persiste entre cierres de navegador), o sessionStorage
-   * si no (se borra al cerrar la pestaña/navegador).
-   *
-   * IMPORTANTE: Nunca guardamos la contraseña en la sesión.
-   *
-   * ------------------------------------------------------------
-   * INTEGRACIÓN FUTURA CON JWT:
-   * Cuando exista backend, este objeto de sesión se reemplazará
-   * por el token recibido, por ejemplo:
-   *
-   *   const sesion = {
-   *     token: response.token,          // JWT recibido del backend
-   *     expiresAt: response.expiresAt,  // fecha de expiración
-   *   };
-   *
-   * Y las validaciones de email/password dejarán de compararse
-   * contra localStorage; en su lugar se enviará un fetch/POST
-   * al endpoint de login y el backend responderá con el token.
-   * ------------------------------------------------------------
-   */
-  function guardarSesion(usuario, recordar) {
-    const sesion = {
-      nombre: usuario.nombre,
-      email: usuario.email,
-      rol: usuario.rol || "cliente", // por si algún usuario viejo no tiene rol
-      loginTimestamp: new Date().toISOString(),
-      // token: null  <-- aquí se guardaría el JWT en el futuro
-    };
-
-    const storage = recordar ? localStorage : sessionStorage;
-    storage.setItem("sesionActiva", JSON.stringify(sesion));
-
-    // Si se guarda en un storage, aseguramos que no quede
-    // una sesión vieja en el otro storage.
-    const storageContrario = recordar ? sessionStorage : localStorage;
-    storageContrario.removeItem("sesionActiva");
+    return datos.usuario;
   }
 
   // ------------------------------------------------------
   // Manejo del submit del formulario
   // ------------------------------------------------------
 
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
     limpiarTodosLosErrores();
 
     const email = emailInput.value.trim();
     const password = passwordInput.value;
-    const recordar = rememberCheckbox ? rememberCheckbox.checked : false;
 
-    // 1. Validación de formato (frontend)
+    // 1. Validación de formato (frontend, antes de gastar una petición)
     const errorEmail = validarEmail(email);
     const errorPassword = validarPassword(password);
 
@@ -274,19 +184,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (hayErrores) return;
 
-    // 2. Verificación contra los usuarios guardados
-    const usuarios = obtenerUsuarios();
-    const usuarioEncontrado = buscarUsuarioPorEmail(email, usuarios);
+    // 2. Deshabilitamos el botón mientras esperamos la API, para
+    //    evitar doble envío si el usuario hace doble clic.
+    const submitButton = form.querySelector(".login-card__button--primary");
+    const textoOriginalBoton = submitButton.textContent;
+    submitButton.disabled = true;
+    submitButton.textContent = "Ingresando...";
 
-    // Por seguridad, no revelamos si falló el email o la contraseña,
-    // solo mostramos un mensaje genérico.
-    if (!usuarioEncontrado || usuarioEncontrado.password !== password) {
-      mostrarErrorGeneral("Correo electrónico o contraseña incorrectos.");
-      return;
+    try {
+      // 3. Verificación contra la base de datos vía la API.
+      //    Si la API responde exito:false, cae al catch de abajo.
+      await iniciarSesionEnAPI(email, password);
+
+      // 4. Login exitoso: la sesión ya quedó abierta en el servidor
+      //    (cookie PHPSESSID). No guardamos nada en el navegador.
+      window.location.href = REDIRECT_URL;
+    } catch (error) {
+      // Mensaje genérico, igual que antes: no revelamos si falló
+      // el correo o la contraseña.
+      mostrarErrorGeneral(error.message || "Correo electrónico o contraseña incorrectos.");
+      submitButton.disabled = false;
+      submitButton.textContent = textoOriginalBoton;
     }
-
-    // 3. Login exitoso: guardar sesión y redirigir
-    guardarSesion(usuarioEncontrado, recordar);
-    window.location.href = REDIRECT_URL;
   });
 });
