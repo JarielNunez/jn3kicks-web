@@ -1,5 +1,5 @@
 <?php
-    include(__DIR__ . "/../config/conexion.php");
+    include(__DIR__ . "/../../config/conexion.php");
 
     $carrito_id = $_POST["carrito_id"];
 

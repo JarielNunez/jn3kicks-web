@@ -2,7 +2,7 @@
     ini_set('display_errors', 1);
     error_reporting(E_ALL);
 
-    include(__DIR__ . "/../config/conexion.php");
+    include(__DIR__ . "/../../config/conexion.php");
 
     $usuario_id = 1; // Por ahora, usuario fijo de prueba (luego sera $_SESION["usuario_id"])
 
