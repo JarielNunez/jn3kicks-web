@@ -1,17 +1,21 @@
 <?php
-    ini_set('display_errors', 1);
-    error_reporting(E_ALL);
-    include (__DIR__ . "/../../config/conexion.php");
+    header('Content-Type: application/json');
+    include(__DIR__ . "/../../config/conexion.php");
 
     $carrito_id = $_POST["carrito_id"];
-    $nueva_cantidad = $POST["cantidad"];
+    $nueva_cantidad = intval($_POST["cantidad"]);
 
-    $consulta = "UPDATE carrito SET cantidad = '$nueva_cantidad' where id = '$carrito_id'";
-
-    if ($conexion->query($consulta)){
-    echo "Cantidad actualizada";
-    } else {
-    echo "Error: " . $conexion->error;
+    // Validación del lado del servidor: nunca menos de 1
+    if ($nueva_cantidad < 1) {
+        echo json_encode(["exito" => false, "mensaje" => "La cantidad debe ser al menos 1"]);
+        exit;
     }
 
-?>    
+    $consulta = "UPDATE carrito SET cantidad = '$nueva_cantidad' WHERE id = '$carrito_id'";
+
+    if ($conexion->query($consulta)) {
+        echo json_encode(["exito" => true]);
+    } else {
+        echo json_encode(["exito" => false, "error" => $conexion->error]);
+    }
+?>
