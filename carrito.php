@@ -18,7 +18,7 @@
                 <li class="nav__item"><a href="index.html" class="nav__link">Inicio</a></li>
                 <li class="nav__item"><a href="catalogo.html" class="nav__link">Catálogo</a></li>
                 <li class="nav__item"><a href="nosotros.html" class="nav__link">Nosotros</a></li>
-                <li class="nav__item"><a href="carrito.html" class="nav__link nav__link--activo">Carrito</a></li>
+                <li class="nav__item"><a href="carrito.php" class="nav__link nav__link--activo">Carrito</a></li>
         </ul>
     </nav>
     </header>
@@ -32,42 +32,6 @@
             <!-- Listado de articulos del carrito -->
             <div class="carrito-pagina__lista">
                 
-                <!-- Artículo 1 -->
-                <div class="carrito-item">
-                    <div class="carrito-item__imagen"></div>
-                    
-                    <div class="carrito-item__info">
-                        <span class="carrito-item__nombre">Jordan 1 Retro</span>
-                        <span class="carrito-item__precio">$35.90</span>
-                    </div>
-                    
-                    <div class="carrito-item__controles">
-                        <button class="carrito-item__btn">&lt;</button>
-                        <span class="carrito-item__cantidad">1</span>
-                        <button class="carrito-item__btn">&gt;</button>
-                    </div>
-                    
-                    <a href="#" class="carrito-item__eliminar">Eliminar</a>
-                </div>
-
-                <!-- Artículo 2 -->
-                <div class="carrito-item">
-                    <div class="carrito-item__imagen"></div>
-                    
-                    <div class="carrito-item__info">
-                        <span class="carrito-item__nombre">Nike Air Max</span>
-                        <span class="carrito-item__precio">$35.90</span>
-                    </div>
-                    
-                    <div class="carrito-item__controles">
-                        <button class="carrito-item__btn">&lt;</button>
-                        <span class="carrito-item__cantidad">1</span>
-                        <button class="carrito-item__btn">&gt;</button>
-                    </div>
-                    
-                    <a href="#" class="carrito-item__eliminar">Eliminar</a>
-                </div>
-
             </div>
 
             <!-- Resumen de costos de la orden -->
@@ -76,17 +40,17 @@
                 
                 <div class="carrito-resumen__fila">
                     <span>Subtotal:</span>
-                    <span class="carrito-resumen__valor-subtotal">$5000</span>
+                    <span class="carrito-resumen__valor-subtotal">$0</span>
                 </div>
                 
                 <div class="carrito-resumen__fila">
                     <span>Envío:</span>
-                    <span class="carrito-resumen__valor-envio">$1000</span>
+                    <span class="carrito-resumen__valor-envio">$0</span>
                 </div>
                 
                 <div class="carrito-resumen__fila carrito-resumen__fila--total">
                     <span>Total:</span>
-                    <span class="carrito-resumen__valor-total">$6000</span>
+                    <span class="carrito-resumen__valor-total">$0</span>
                 </div>
                 
                 <button class="carrito-resumen__boton">Proceder al Pago</button>
