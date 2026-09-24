@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    // Ramon o Reimer, agreguen aqui su parte
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
