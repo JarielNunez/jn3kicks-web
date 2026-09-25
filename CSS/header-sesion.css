@@ -1,0 +1,72 @@
+/* ===== ESTILOS GENERALES DEL HEADER ===== */
+.header {
+background-color: #1a1a1a;
+box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+width: 100%;
+}
+
+.nav {
+display: flex;
+align-items: center;
+justify-content: space-between;
+max-width: 1180px;
+margin: 0 auto;
+padding: 24px 48px;
+}
+
+.logo {
+font-family: inherit;
+font-weight: 700;
+color: #ffffff;
+font-size: 1.5rem;
+}
+
+.nav__links {
+display: flex;
+align-items: center;
+gap: 32px;
+list-style: none;
+margin: 0;
+padding: 0;
+}
+
+.nav__links a {
+text-decoration: none;
+font-size: 0.95rem;
+color: #b3b3b3;
+transition: color 0.2s ease;
+}
+
+.nav__links a:hover {
+color: #ffffff;
+}
+
+/* ===== ESTILOS PARA LA ZONA DINÁMICA DE USUARIO ===== */
+
+/* Texto de saludo: "Hola, [Nombre]" */
+.nav__usuario {
+font-size: 0.95rem;
+color: #b3b3b3;
+display: flex;
+align-items: center;
+gap: 5px;
+}
+
+.nav__usuario strong {
+  color: #ffffff; /* Nombre destacado en blanco brillante */
+font-weight: 600;
+}
+
+/* Botón de Cerrar Sesión */
+.btn-logout {
+  color: #ff4d4d !important; /* Rojo elegante para destacar la acción de salida */
+padding: 6px 14px;
+border: 1px solid #ff4d4d;
+border-radius: 6px;
+transition: all 0.2s ease !important;
+}
+
+.btn-logout:hover {
+background-color: #ff4d4d;
+color: #ffffff !important;
+}
