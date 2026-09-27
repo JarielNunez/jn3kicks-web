@@ -1,5 +1,5 @@
 <?php
-    include(__DIR__ . "/../config/conexion.php");
+    include(__DIR__ . "/../../config/conexion.php");
 
     //Por ahora, usuario fijo de prueba (luego sera $_SESSION["usuario_id"])
     $usuario_id =1;
