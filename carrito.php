@@ -15,16 +15,7 @@
 
     <!-- Encabezado principal -->
     <header class="header">
-        <nav class="nav">
-            <a href="index.html" class="nav__logo">JN3 KICKS</a>
-    
-            <ul class="nav__menu">
-                <li class="nav__item"><a href="index.html" class="nav__link">Inicio</a></li>
-                <li class="nav__item"><a href="catalogo.html" class="nav__link">Catálogo</a></li>
-                <li class="nav__item"><a href="nosotros.html" class="nav__link">Nosotros</a></li>
-                <li class="nav__item"><a href="carrito.php" class="nav__link nav__link--activo">Carrito</a></li>
-        </ul>
-    </nav>
+         <?php include __DIR__ . '/php/header/header.php'; ?>
     </header>
 
     <!-- Contenido principal del carrito -->

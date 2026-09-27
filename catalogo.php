@@ -12,14 +12,7 @@
 <body>
 
     <header class="header">
-        <nav class="header__nav">
-            <h1 class="header__logo">JN3 KICKS</h1>
-            <ul class="header__menu">
-                <li class="header__menu-item"><a class="header__link" href="index.html">Inicio</a></li>
-                <li class="header__menu-item"><a class="header__link" href="catalogo.html">Catálogo</a></li>
-                <li class="header__menu-item"><a class="header__link" href="carrito.html">Carrito</a></li>
-            </ul>
-        </nav>
+       <?php include __DIR__ . '/php/header/header.php'; ?>
     </header>
 
     <main class="main">
@@ -131,7 +124,7 @@
                         <h3 class="producto__titulo">Nike SB Zoom Blazer Mid</h3>
                         <p class="producto__descripcion">Tenis deportivos para uso diario.</p>
                         <p class="producto__precio">RD$6,500</p>
-                        <a href="producto.html" class="producto__boton">Ver producto</a>
+                        <a href="producto.php" class="producto__boton">Ver producto</a>
                     </div>
                 </article>
 
@@ -142,7 +135,7 @@
                         <h3 class="producto__titulo">Nike Ava Rover Premium</h3>
                         <p class="producto__descripcion">Tenis de correr con diseño clásico.</p>
                         <p class="producto__precio">RD$10,500</p>
-                        <a href="Producto2.html" class="producto__boton">Ver producto</a>
+                        <a href="Producto2.php" class="producto__boton">Ver producto</a>
                     </div>
                 </article>
 
@@ -153,7 +146,7 @@
                         <h3 class="producto__titulo">Converse Chuck 70 High Top</h3>
                         <p class="producto__descripcion">Tenis casuales modernos y cómodos.</p>
                         <p class="producto__precio">RD$7,000</p>
-                        <a href="Producto3.html" class="producto__boton">Ver producto</a>
+                        <a href="Producto3.php" class="producto__boton">Ver producto</a>
                     </div>
                 </article>
 
@@ -164,7 +157,7 @@
                         <h3 class="producto__titulo">Converse Chuck 70 Low Top</h3>
                         <p class="producto__descripcion">Tenis casuales modernos y con lift platform.</p>
                         <p class="producto__precio">RD$7,000</p>
-                        <a href="Producto4.html" class="producto__boton">Ver producto</a>
+                        <a href="Producto4.php" class="producto__boton">Ver producto</a>
                     </div>
                 </article>
 
@@ -207,9 +200,9 @@
     <footer class="footer">
         <p class="footer__copy">&copy; 2026 JN3 KICKS. Todos los derechos reservados.</p>
         <nav class="footer__nav">
-            <a class="footer__link" href="index.html">Inicio</a>
-            <a class="footer__link" href="catalogo.html">Catálogo</a>
-            <a class="footer__link" href="nosotros.html">Nosotros</a>
+            <a class="footer__link" href="index.php">Inicio</a>
+            <a class="footer__link" href="catalogo.php">Catálogo</a>
+            <a class="footer__link" href="nosotros.php">Nosotros</a>
             <a class="footer__link" href="contacto.html">Contacto</a>
         </nav>
     </footer>

@@ -10,14 +10,7 @@
 <body>
 
     <header>
-        <nav>
-            <div class="logo">JN3 KICKS</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="catalogo.html">Catalogo</a></li>
-                <li><a href="carrito.html">Carrito</a></li>
-            </ul>
-        </nav>
+       <?php include __DIR__ . '/php/header/header.php'; ?>
     </header>
 
 
@@ -97,31 +90,31 @@
             <article class="card">
                 <h3 class="card__titulo">Giannis Freak 8 LX</h3>
                 <img class="card__imagen" src="img/GIANNIS-FREAK-8-LX.jpg" alt="Giannis Freak 8 LX">
-                <a href="producto-giannis-freak-8-lx.html" class="card__boton">Más Info</a>
+                <a href="producto-giannis-freak-8-lx.php" class="card__boton">Más Info</a>
             </article>
 
             <article class="card">
                 <h3 class="card__titulo">Giannis Immortality 5</h3>
                 <img class="card__imagen" src="img/GIANNIS-IMMORTALITY-5.jpg" alt="Giannis Immortality 5">
-                <a href="producto-giannis-immortality-5.html" class="card__boton">Más Info</a>
+                <a href="producto-giannis-immortality-5.php" class="card__boton">Más Info</a>
             </article>
 
             <article class="card">
                 <h3 class="card__titulo">JA-4</h3>
                 <img class="card__imagen" src="img/JA-4.jpg" alt="JA-4">
-                <a href="producto-ja4.html" class="card__boton">Más Info</a>
+                <a href="producto-ja4.php" class="card__boton">Más Info</a>
             </article>
 
             <article class="card">
                 <h3 class="card__titulo">Nike Cortez TXT</h3>
                 <img class="card__imagen" src="img/NIKE-CORTEZ-TXT.jpg" alt="Nike Cortez TXT">
-                <a href="producto-nike-cortez-txt.html" class="card__boton">Más Info</a>
+                <a href="producto-nike-cortez-txt.php" class="card__boton">Más Info</a>
             </article>
 
             <article class="card">
                 <h3 class="card__titulo">Nike Free Metcon 7</h3>
                 <img class="card__imagen" src="img/NIKE-FREE-METCON-7.jpg" alt="Nike Free Metcon 7">
-                <a href="producto-nike-free-metcon-7.html" class="card__boton">Más Info</a>
+                <a href="producto-nike-free-metcon-7.php" class="card__boton">Más Info</a>
             </article>
 
         </div>

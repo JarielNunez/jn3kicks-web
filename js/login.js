@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const passwordInput = document.getElementById("password");
 
   // Redirección tras login exitoso
-  const REDIRECT_URL = "/jn3kicks-web/index.html";
+  const REDIRECT_URL = "/jn3kicks-web/index.php";
 
   // Reglas de validación (formato, antes de llamar a la API)
   const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
