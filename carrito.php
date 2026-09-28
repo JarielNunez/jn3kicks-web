@@ -1,6 +1,5 @@
 <?php
-    session_start();
-    // Ramon o Reimer, agreguen aqui su parte
+    session_start(); 
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -48,7 +47,20 @@
                     <span class="carrito-resumen__valor-total">$0</span>
                 </div>
                 
-                <button class="carrito-resumen__boton">Proceder al Pago</button>
+               <?php if (isset($_SESSION['usuario_id'])): ?>
+    <button
+        type="button"
+        class="carrito-resumen__boton">
+        Proceder al Pago
+    </button>
+<?php else: ?>
+    <button
+        type="button"
+        class="carrito-resumen__boton"
+        onclick="window.location.href='login.php'">
+        Proceder al Pago
+    </button>
+<?php endif; ?>
             </div>
 
         </div>
