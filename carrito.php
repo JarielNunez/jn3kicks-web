@@ -57,7 +57,8 @@
     <button
         type="button"
         class="carrito-resumen__boton"
-        onclick="window.location.href='login.php'">
+        onclick="window.location.href='login.php?redirect=carrito.php'"
+        >
         Proceder al Pago
     </button>
 <?php endif; ?>
