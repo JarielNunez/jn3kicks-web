@@ -1,4 +1,4 @@
-<!DOCTYPE 
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -28,11 +28,10 @@
                 <label class="buscador__label" for="buscar">Buscar tenis:</label>
 
                 <div class="buscador__campo">
-                    <input class="buscador__input" type="search" id="buscar" ...>
+                    <input class="buscador__input" type="search" id="buscar" name="buscar" placeholder="Escribe el nombre del tenis">
                     <span class="buscador__error" role="alert" style="display: none;"></span>
                 </div>
 
-                <!-- <input class="buscador__input" type="search" id="buscar" name="buscar" placeholder="Escribe el nombre del tenis"> -->
                 <button class="buscador__boton" type="submit">Buscar</button>
             </form>
         </section>
@@ -40,7 +39,6 @@
         <section id="catalogo" class="catalogo">
             <h2 class="catalogo__titulo">Productos</h2>
 
-            <!-- Filtros laterales -->
             <aside class="filtros">
                 <h2 class="filtros__titulo-general">Filtros</h2>
 
@@ -103,7 +101,6 @@
                 </section>
             </aside>
 
-            <!-- Sección de ordenamiento -->
             <div class="catalogo__ordenar">
                 <label class="catalogo__ordenar-label" for="orden">Ordenar por:</label>
                 <select class="catalogo__ordenar-select" id="orden" name="orden">
@@ -114,56 +111,8 @@
                 </select>
             </div>
 
-            <!-- Listado de productos -->
-            <section class="catalogo__productos">
+            <section class="catalogo__productos"></section>
 
-                <!-- Producto 1 -->
-                <article class="producto" data-marca="nike" data-genero="hombre" data-categoria="casual">
-                    <img class="producto__imagen" src="img/NIKE-SB-ZOOM-BLAZER-MID.jpg" alt="Nike SB Zoom Blazer Mid">
-                    <div class="producto__info">
-                        <h3 class="producto__titulo">Nike SB Zoom Blazer Mid</h3>
-                        <p class="producto__descripcion">Tenis deportivos para uso diario.</p>
-                        <p class="producto__precio">RD$6,500</p>
-                        <a href="producto.php" class="producto__boton">Ver producto</a>
-                    </div>
-                </article>
-
-                <!-- Producto 2 -->
-                <article class="producto" data-marca="nike" data-genero="unisex" data-categoria="running">
-                    <img class="producto__imagen" src="img/NIKE+AVA+ROVER+PRM.avif" alt="Nike Ava Rover Premium">
-                    <div class="producto__info">
-                        <h3 class="producto__titulo">Nike Ava Rover Premium</h3>
-                        <p class="producto__descripcion">Tenis de correr con diseño clásico.</p>
-                        <p class="producto__precio">RD$10,500</p>
-                        <a href="Producto2.php" class="producto__boton">Ver producto</a>
-                    </div>
-                </article>
-
-                <!-- Producto 3 -->
-                <article class="producto" data-marca="converse" data-genero="unisex" data-categoria="casual">
-                    <img class="producto__imagen" src="img/CHUCK+70+HI+BLACK_BLACK_EGRET NORMAL.avif" alt="Converse Chuck 70 High Top">
-                    <div class="producto__info">
-                        <h3 class="producto__titulo">Converse Chuck 70 High Top</h3>
-                        <p class="producto__descripcion">Tenis casuales modernos y cómodos.</p>
-                        <p class="producto__precio">RD$7,000</p>
-                        <a href="Producto3.php" class="producto__boton">Ver producto</a>
-                    </div>
-                </article>
-
-                <!-- Producto 4 -->
-                <article class="producto" data-marca="converse" data-genero="mujer" data-categoria="casual">
-                    <img class="producto__imagen" src="img/CHUCK+70+OX+WHITE_GARNET_EGRET NORMAL.avif" alt="Converse Chuck 70 Low Top">
-                    <div class="producto__info">
-                        <h3 class="producto__titulo">Converse Chuck 70 Low Top</h3>
-                        <p class="producto__descripcion">Tenis casuales modernos y con lift platform.</p>
-                        <p class="producto__precio">RD$7,000</p>
-                        <a href="Producto4.php" class="producto__boton">Ver producto</a>
-                    </div>
-                </article>
-
-            </section>
-
-            <!-- Guía de tallas -->
             <section class="guia-tallas">
                 <h2 class="guia-tallas__titulo">Guía de tallas</h2>
                 <table class="guia-tallas__tabla">
@@ -184,7 +133,6 @@
                 </table>
             </section>
 
-            <!-- Paginación -->
             <nav class="paginacion" aria-label="Paginación del catálogo">
                 <a class="paginacion__link" href="#" aria-label="Página anterior">Anterior</a>
                 <a class="paginacion__link paginacion__link--activo" href="#" aria-current="page">1</a>
@@ -207,7 +155,7 @@
         </nav>
     </footer>
 
-        <script src="js/catalogo.js"></script>
+    <script src="js/catalogo.js"></script>
 
 </body>
 
