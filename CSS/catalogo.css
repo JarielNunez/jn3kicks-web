@@ -169,6 +169,7 @@ body {
 
 .filtros__checkbox {
     accent-color: #121212;
+    display: none
 }
 
 /* ===== Ordenar ===== */

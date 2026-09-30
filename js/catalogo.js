@@ -265,3 +265,27 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('catalogo.js: no se encontró ".buscador__form" o "#buscar" en el HTML. El buscador no va a funcionar.');
     } 
 });
+
+async function cargarProductos() {
+  const respuesta = await fetch("php/productos/productos_ver.php");
+  const productos = await respuesta.json();
+
+  const contenedor = document.querySelector(".catalogo__productos");
+  contenedor.innerHTML = "";
+
+  for (const producto of productos) {
+    const articulo = document.createElement("article");
+    articulo.classList.add("producto");
+
+    articulo.innerHTML = `
+      <img class="producto__imagen" src="${producto.imagen}" alt="${producto.nombre}">
+      <h3 class="producto__titulo">${producto.nombre}</h3>
+      <p class="producto__precio">$${producto.precio}</p>
+      <a href="producto.html" class="producto__boton">Ver producto</a>
+    `;
+
+    contenedor.appendChild(articulo);
+  }
+}
+
+cargarProductos();

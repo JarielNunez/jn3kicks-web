@@ -10,14 +10,7 @@
 <body>
 
     <header>
-        <nav>
-            <div class="logo">JN3 KICKS</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="catalogo.html">Catalogo</a></li>
-                <li><a href="carrito.html">Carrito</a></li>
-            </ul>
-        </nav>
+       <?php include __DIR__ . '/php/header/header.php'; ?>
     </header>
 
 
@@ -27,7 +20,8 @@
 
             <div class="producto__galeria">
 
-                <img class="producto__imagen" src="img/CHUCK+70+HI+BLACK_BLACK_EGRET de frente.avif" alt="Converse Chuck 70 High Top">
+                <img class="producto__imagen" src="img/CHUCK+70+OX+WHITE_GARNET_EGRET NORMAL.avif" alt="Converse Chuck 70 Low Top
+">
 
                 <div class="producto__especificaciones">
                     <h2 class="producto__subtitulo">Especificaciones</h2>
@@ -42,20 +36,21 @@
 <div class="producto__miniaturas">
 
         <img class="producto__miniatura producto__miniatura--activa" 
-            src="img/CHUCK+70+HI+BLACK_BLACK_EGRET de frente.avif" 
-            alt="Vista De frente">
+            src="img/CHUCK+70+OX+WHITE_GARNET_EGRET NORMAL.avif" 
+            alt="Vista Normal">
+            <img class="producto__miniatura producto__miniatura--activa" 
+            src="img/CHUCK+70+OX+WHITE_GARNET_EGRET FRENTE.avif" 
+            alt="Vista de Frente">
         <img class="producto__miniatura" 
-            src="img/CHUCK+70+HI+BLACK_BLACK_EGRET Lado Derecho.avif" 
+            src="img/CHUCK+70+OX+WHITE_GARNET_EGRET LADO DERECHO.avif" 
             alt="Vista lado derecho">
         <img class="producto__miniatura" 
-            src="img/CHUCK+70+HI+BLACK_BLACK_EGRET Arribaa.avif" 
+            src="img/CHUCK+70+OX+WHITE_GARNET_EGRET ARRIBA.avif" 
             alt="Vista arriba">
             <img class="producto__miniatura" 
-            src="img/CHUCK+70+HI+BLACK_BLACK_EGRET Atras.avif" 
+            src="img/CHUCK+70+OX+WHITE_GARNET_EGRET ATRAS.avif" 
             alt="Vista lado atras">
-        <img class="producto__miniatura" 
-            src="img/CHUCK+70+HI+BLACK_BLACK_EGRET abajo.avif" 
-            alt="Vista abajo">
+
     </div>
 
             </div>
@@ -95,31 +90,31 @@
             <article class="card">
                 <h3 class="card__titulo">Giannis Freak 8 LX</h3>
                 <img class="card__imagen" src="img/GIANNIS-FREAK-8-LX.jpg" alt="Giannis Freak 8 LX">
-                <a href="producto-giannis-freak-8-lx.html" class="card__boton">Más Info</a>
+                <a href="producto-giannis-freak-8-lx.php" class="card__boton">Más Info</a>
             </article>
 
             <article class="card">
                 <h3 class="card__titulo">Giannis Immortality 5</h3>
                 <img class="card__imagen" src="img/GIANNIS-IMMORTALITY-5.jpg" alt="Giannis Immortality 5">
-                <a href="producto-giannis-immortality-5.html" class="card__boton">Más Info</a>
+                <a href="producto-giannis-immortality-5.php" class="card__boton">Más Info</a>
             </article>
 
             <article class="card">
                 <h3 class="card__titulo">JA-4</h3>
                 <img class="card__imagen" src="img/JA-4.jpg" alt="JA-4">
-                <a href="producto-ja4.html" class="card__boton">Más Info</a>
+                <a href="producto-ja4.php" class="card__boton">Más Info</a>
             </article>
 
             <article class="card">
                 <h3 class="card__titulo">Nike Cortez TXT</h3>
                 <img class="card__imagen" src="img/NIKE-CORTEZ-TXT.jpg" alt="Nike Cortez TXT">
-                <a href="producto-nike-cortez-txt.html" class="card__boton">Más Info</a>
+                <a href="producto-nike-cortez-txt.php" class="card__boton">Más Info</a>
             </article>
 
             <article class="card">
                 <h3 class="card__titulo">Nike Free Metcon 7</h3>
                 <img class="card__imagen" src="img/NIKE-FREE-METCON-7.jpg" alt="Nike Free Metcon 7">
-                <a href="producto-nike-free-metcon-7.html" class="card__boton">Más Info</a>
+                <a href="producto-nike-free-metcon-7.php" class="card__boton">Más Info</a>
             </article>
 
         </div>

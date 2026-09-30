@@ -12,16 +12,7 @@
 <body>
     
     <header class="header">
-        <nav class="nav">
-            <h2 class ="logo">JN3 KICKS</h2>
-            <ul class ="nav__links">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="catalogo.html">Catalogo</a></li>
-                <li><a href="nosotros.html">Nosotros</a></li>
-                <li><a href="carrito.html">Carrito</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
-        </nav>
+        <?php include __DIR__ . '/php/header/header.php'; ?>
     </header>
 
 
@@ -31,7 +22,7 @@
                 <h3 class="hero__subtitulo">NUEVA COLECCION</h3>
                 <h1 class="hero__titulo">Nike Structure Plus SP</h1>
                 <p class="hero__descripcion">Importados desde USA. Calidad garantizada. Compra con confianza.</p>
-                <a href="catalogo.html" class="boton boton--primario">Ver Catalago</a>
+                <a href="catalogo.php" class="boton boton--primario">Ver Catalago</a>
             </div>
         
         <div class="hero__imagen">

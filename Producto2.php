@@ -10,14 +10,7 @@
 <body>
 
     <header>
-        <nav>
-            <div class="logo">JN3 KICKS</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="catalogo.html">Catalogo</a></li>
-                <li><a href="carrito.html">Carrito</a></li>
-            </ul>
-        </nav>
+       <?php include __DIR__ . '/php/header/header.php'; ?>
     </header>
 
 
@@ -27,7 +20,7 @@
 
             <div class="producto__galeria">
 
-                <img class="producto__imagen" src="img/NIKE-SB-ZOOM-BLAZER-MID.jpg" alt="Nike SB Zoom Blazer Mid">
+                <img class="producto__imagen" src="img/NIKE+AVA+ROVER+PRM  Frente.avif" alt="Nike Ava Rover Premium">
 
                 <div class="producto__especificaciones">
                     <h2 class="producto__subtitulo">Especificaciones</h2>
@@ -42,22 +35,22 @@
 <div class="producto__miniaturas">
 
         <img class="producto__miniatura producto__miniatura--activa" 
-            src="img/NIKE-SB-ZOOM-BLAZER-MID.jpg" 
+            src="img/NIKE+AVA+ROVER+PRM  Frente.avif" 
             alt="Vista De frente">
             <img class="producto__miniatura" 
-            src="img/NIKE+SB+ZOOM+BLAZER+MID.avif" 
+            src="img/NIKE+AVA+ROVER+PRM.avif" 
             alt="Vista de frente">
         <img class="producto__miniatura" 
-            src="img/NIKE+SB+ZOOM+BLAZER+MID DERECHO.avif" 
+            src="img/NIKE+AVA+ROVER+PRM lado derecho.avif" 
             alt="Vista lado derecho">
         <img class="producto__miniatura" 
-            src="img/NIKE+SB+ZOOM+BLAZER+MID ARRIBa.avif" 
+            src="img/NIKE+AVA+ROVER+PRM Arriba.avif" 
             alt="Vista arriba">
             <img class="producto__miniatura" 
-            src="img/NIKE+SB+ZOOM+BLAZER+MID detras.avif" 
+            src="img/NIKE+AVA+ROVER+PRM Parte trasera.avif" 
             alt="Vista lado atras">
         <img class="producto__miniatura" 
-            src="img/NIKE+SB+ZOOM+BLAZER+MID debajo.avif" 
+            src="img/NIKE+AVA+ROVER+PRM Abajo.avif" 
             alt="Vista abajo">
     </div>
 
@@ -65,8 +58,8 @@
 
             <div class="producto__info">
 
-                <p class="producto__titulo">Nike SB Zoom Blazer Mid</p>
-                <p class="producto__precio">RD$6,500</p>
+                <p class="producto__titulo">Nike Ava Rover Premium</p>
+                <p class="producto__precio">RD$10,500</p>
 
                 <label class="producto__label" for="talla">Size</label>
                 <select class="producto__select" id="talla">
@@ -98,31 +91,31 @@
             <article class="card">
                 <h3 class="card__titulo">Giannis Freak 8 LX</h3>
                 <img class="card__imagen" src="img/GIANNIS-FREAK-8-LX.jpg" alt="Giannis Freak 8 LX">
-                <a href="producto-giannis-freak-8-lx.html" class="card__boton">Más Info</a>
+                <a href="producto-giannis-freak-8-lx.php" class="card__boton">Más Info</a>
             </article>
 
             <article class="card">
                 <h3 class="card__titulo">Giannis Immortality 5</h3>
                 <img class="card__imagen" src="img/GIANNIS-IMMORTALITY-5.jpg" alt="Giannis Immortality 5">
-                <a href="producto-giannis-immortality-5.html" class="card__boton">Más Info</a>
+                <a href="producto-giannis-immortality-5.php" class="card__boton">Más Info</a>
             </article>
 
             <article class="card">
                 <h3 class="card__titulo">JA-4</h3>
                 <img class="card__imagen" src="img/JA-4.jpg" alt="JA-4">
-                <a href="producto-ja4.html" class="card__boton">Más Info</a>
+                <a href="producto-ja4.php" class="card__boton">Más Info</a>
             </article>
 
             <article class="card">
                 <h3 class="card__titulo">Nike Cortez TXT</h3>
                 <img class="card__imagen" src="img/NIKE-CORTEZ-TXT.jpg" alt="Nike Cortez TXT">
-                <a href="producto-nike-cortez-txt.html" class="card__boton">Más Info</a>
+                <a href="producto-nike-cortez-txt.php" class="card__boton">Más Info</a>
             </article>
 
             <article class="card">
                 <h3 class="card__titulo">Nike Free Metcon 7</h3>
                 <img class="card__imagen" src="img/NIKE-FREE-METCON-7.jpg" alt="Nike Free Metcon 7">
-                <a href="producto-nike-free-metcon-7.html" class="card__boton">Más Info</a>
+                <a href="producto-nike-free-metcon-7.php" class="card__boton">Más Info</a>
             </article>
 
         </div>

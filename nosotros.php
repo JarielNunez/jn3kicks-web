@@ -14,31 +14,7 @@
 
     <header class="site-header">
 
-        <nav class="site-header__nav">
-
-            <a href="index.html" class="site-header__logo">
-                JN3 KICKS
-            </a>
-
-            <ul class="site-header__menu">
-
-                <li class="site-header__item">
-                    <a href="index.html" class="site-header__link">
-                        Inicio
-                    </a>
-                </li>
-
-                <li class="site-header__item">
-                    <a href="nosotros.html"
-                    class="site-header__link site-header__link--active">
-                        Nosotros
-                    </a>
-                </li>
-
-
-            </ul>
-
-        </nav>
+       <?php include __DIR__ . '/php/header/header.php'; ?>
 
     </header>
 
