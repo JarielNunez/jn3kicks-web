@@ -76,7 +76,7 @@ $redirect = isset($_GET['redirect']) && preg_match('/^[a-zA-Z0-9_\-]+\.php$/', $
       <footer class="login-card__footer">
         <p class="login-card__register-text">
           ¿No tienes una cuenta? 
-          <a href="#" class="login-card__register-link">Regístrate aquí</a>
+          <a href="./registrar.php" class="login-card__register-link">Regístrate aquí</a>
         </p>
       </footer>
     </section>
