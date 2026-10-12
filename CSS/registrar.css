@@ -1,0 +1,182 @@
+@import url("./variables.css");
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+body {
+    font-family: var(--fuente-principal);
+    color: var(--color-texto);
+    background: var(--color-fondo);
+    min-height: 100vh;
+}
+ 
+/* ---------- Header ---------- */
+.header {
+    background: var(--color-barra-navegador);
+    height: 63px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+.header .inner {
+    width: 100%;
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+.logo {
+    font-family: var(--fuente-display);
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 0.5px;
+    color: var(--color-fondo);
+    text-decoration: none;
+}
+ 
+/* ---------- Layout ---------- */
+main {
+    display: flex;
+    justify-content: center;
+    padding: 80px 16px 80px;
+}
+ 
+.card {
+    width: 100%;
+    max-width: 461px;
+    border: 1px solid var(--color-borde);
+    background: var(--color-fondo);
+    padding: 36px 36px 36px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+ 
+.card h1 {
+    font-family: var(--fuente-display);
+    font-weight: 700;
+    font-size: 29px;
+    letter-spacing: -0.5px;
+    margin-top: 10px;
+}
+.card .subtitle {
+    color: var(--color-texto-secundario);
+    font-size: 14.5px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+ 
+/* ---------- Form ---------- */
+.field { margin-bottom: 20px; }
+ 
+label {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 600;
+    margin-bottom: 9px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    height: 45px;
+    border: 1px solid var(--color-borde);
+    padding: 0 16px;
+    font-family: inherit;
+    font-size: 14.5px;
+    color: var(--color-texto);
+    background: var(--color-fondo);
+    outline: none;
+    border-radius: 0;
+    transition: box-shadow .15s, border-color .15s;
+}
+input:focus {
+    border-color: var(--color-acento);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-acento) 25%, transparent);
+}
+input::placeholder { color: var(--color-texto-secundario); }
+input.invalid { border-color: var(--color-acento-secundario); }
+ 
+.error-msg {
+    color: var(--color-acento-secundario);
+    font-size: 12.5px;
+    margin-top: 6px;
+    display: none;
+}
+.error-msg.show { display: block; }
+ 
+.hint { color: var(--color-texto-secundario); font-size: 12px; margin-top: 6px; }
+ 
+.checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 4px 0 26px;
+    font-size: 13.5px;
+    color: var(--color-texto-secundario);
+    line-height: 1.4;
+}
+.checkbox input {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    border: 1px solid var(--color-borde);
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 1px;
+    display: grid;
+    place-content: center;
+}
+.checkbox input:checked {
+    background: var(--color-texto);
+    border-color: var(--color-texto);
+}
+.checkbox input:checked::after {
+    content: "";
+    width: 9px; height: 5px;
+    border-left: 2px solid var(--color-fondo);
+    border-bottom: 2px solid var(--color-fondo);
+    transform: rotate(-45deg) translate(1px, -1px);
+}
+.checkbox a { color: var(--color-texto); font-weight: 600; text-decoration: none; }
+.checkbox a:hover { color: var(--color-acento); text-decoration: underline; }
+ 
+.btn {
+    width: 100%;
+    height: 47px;
+    background: var(--color-texto);
+    color: var(--color-fondo);
+    border: none;
+    font-family: inherit;
+    font-size: 14.5px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+    transition: background .15s, transform .05s;
+}
+.btn:hover { background: var(--color-barra-navegador); }
+.btn:focus-visible { outline: 2px solid var(--color-acento); outline-offset: 2px; }
+.btn:active { transform: translateY(1px); }
+ 
+.divider {
+    border: none;
+    border-top: 1px solid var(--color-linea);
+    margin: 28px 0 22px;
+}
+ 
+.footer-text {
+    text-align: center;
+    font-size: 13.5px;
+    color: var(--color-texto-secundario);
+}
+.footer-text a {
+    color: var(--color-texto);
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 4px;
+}
+.footer-text a:hover { color: var(--color-acento); text-decoration: underline; }
+ 
+@media (max-width: 480px) {
+    main { padding-top: 40px; }
+    .card { padding: 28px 22px; }
+} 

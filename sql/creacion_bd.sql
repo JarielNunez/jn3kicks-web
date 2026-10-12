@@ -18,6 +18,8 @@ CREATE TABLE productos (
     marca VARCHAR(50),
     stock INT DEFAULT 0
 );
+--Actualizacion de la tabla productos para agregar la columna "genero"
+ALTER TABLE productos ADD COLUMN genero VARCHAR(50) NOT NULL;
 
 -- Carrito activo de cada usuario
 CREATE TABLE carrito (
@@ -49,4 +51,4 @@ CREATE TABLE pedido_detalle (
     precio_unitario DECIMAL(10,2) NOT NULL,
     FOREIGN KEY (pedido_id) REFERENCES pedidos(id),
     FOREIGN KEY (producto_id) REFERENCES productos(id)
-);
+)
