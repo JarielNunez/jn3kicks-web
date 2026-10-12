@@ -1,6 +1,6 @@
 <?php
 session_start();
-$redirect = isset($_GET['redirect']) && preg_match('/^[a-zA-Z0-9_\-]+\.php$/', $_GET['redirect']) ? $_GET['redirect'] : null;
+$redirect = isset($_GET['redirect']) && preg_match('/^[a-zA-Z0-9_\-]+\.php$/', $_GET['redirect']) ? $_GET['redirect'] : 'index.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -12,7 +12,7 @@ $redirect = isset($_GET['redirect']) && preg_match('/^[a-zA-Z0-9_\-]+\.php$/', $
   <link rel="stylesheet" href="./CSS/login.css">
 </head>
 <body class="auth-page">
-     
+
   <header class="header">
     <div class="header__container">
       <h1 class="header__logo">JN3 KICKS</h1>
@@ -63,14 +63,13 @@ $redirect = isset($_GET['redirect']) && preg_match('/^[a-zA-Z0-9_\-]+\.php$/', $
           </label>
         </div>
 
-        <button type="submit" class="login-card__button login-card__button--primary">
+       <button type="submit" class="login-card__button login-card__button--primary">
           Iniciar Sesión
         </button>
-        <?php if ($redirect !== null): ?>
+
         <a href="<?php echo htmlspecialchars($redirect); ?>" class="login-card__button login-card__button--secondary">
-        Continuar como invitado
-            </a>
-                <?php endif; ?>
+          Continuar como invitado
+        </a>
       </form>
 
       <footer class="login-card__footer">

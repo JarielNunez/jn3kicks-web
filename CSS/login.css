@@ -263,7 +263,22 @@ body.auth-page {
 .login-card__button--primary:active {
   transform: translateY(0);
 }
+/* Botón secundario: Continuar como invitado */
+.login-card__button--secondary {
+  background-color: transparent;
+  color: var(--color-texto);
+  border: 1px solid var(--color-borde);
+  text-decoration: none;
+}
 
+.login-card__button--secondary:hover {
+  background-color: #f5f5f5;
+  transform: translateY(-1px);
+}
+
+.login-card__button--secondary:active {
+  transform: translateY(0);
+}
 /* Pie del Formulario */
 .login-card__footer {
   margin-top: 28px;
