@@ -20,7 +20,7 @@
 
             <div class="producto__galeria">
 
-                <img class="producto__imagen" src="img/NIKE-SB-ZOOM-BLAZER-MID.jpg" alt="Nike SB Zoom Blazer Mid">
+                <img class="producto__imagen" src="img/CHUCK+70+HI+BLACK_BLACK_EGRET de frente.avif" alt="Nike SB Zoom Blazer Mid">
 
                 <div class="producto__especificaciones">
                     <h2 class="producto__subtitulo">Especificaciones</h2>
