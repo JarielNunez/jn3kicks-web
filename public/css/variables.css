@@ -1,0 +1,23 @@
+:root {
+/* Colores principales */
+--color-fondo: #ffffff;
+--color-bg: #ffffff;
+--color-fondo-elevado: #9a9a9a;
+--color-bg-card: #9a9a9a;
+
+/* Textos */
+--color-texto: oklab(0% 0 0);
+--color-text: oklab(0% 0 0);
+--color-texto-secundario: #9a9a9a;
+--color-text-secondary: #9a9a9a;
+
+/* Acentos y Bordes */
+--color-acento: #5280ff;
+--color-acento-secundario: #e11d2e;
+--color-borde: #2b2b2b;
+--color-barra-navegador: #1a1a1a;
+
+/* Fuentes */
+--fuente-principal: 'Inter', sans-serif;
+--fuente-display: 'Space Grotesk', sans-serif;
+}
