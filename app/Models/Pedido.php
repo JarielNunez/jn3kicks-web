@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Pedidos extends Model
+class Pedido extends Model
 {
     protected $table = 'pedidos';
     public $timestamps = false;
