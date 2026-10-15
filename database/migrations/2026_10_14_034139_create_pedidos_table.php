@@ -12,12 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pedidos', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('pedido_id')->constrained('pedidos')->cascadeOnDelete();
-    // sin cascade: un producto con pedidos no se puede borrar (protege el historial)
-            $table->foreignId('producto_id')->constrained('productos');
-            $table->unsignedInteger('cantidad');
-            $table->decimal('precio_unitario', 10, 2);
+        $table->id();
+         $table->foreignId('usuario_id')->constrained('usuarios');
+        $table->decimal('total', 10, 2);
+        $table->string('estado', 50)->default('pendiente');
+        $table->dateTime('fecha')->useCurrent();
         });
     }
 
