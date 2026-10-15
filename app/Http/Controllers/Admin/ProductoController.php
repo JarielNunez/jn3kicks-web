@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductoRequest;
 use App\Models\Producto;
-use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
 
 class ProductoController extends Controller
 {
@@ -19,10 +20,12 @@ class ProductoController extends Controller
         return view('admin.productos.create');
     }
 
-    public function store(Request $request)
+    public function store(ProductoRequest $request)
     {
-        // pendiente: validar y guardar
-        return redirect()->route('admin.productos.index');
+        Producto::create($request->validated());
+
+        return redirect()->route('admin.productos.index')
+            ->with('exito', 'Producto creado correctamente.');
     }
 
     public function edit(Producto $producto)
@@ -30,15 +33,24 @@ class ProductoController extends Controller
         return view('admin.productos.edit', ['producto' => $producto]);
     }
 
-    public function update(Request $request, Producto $producto)
+    public function update(ProductoRequest $request, Producto $producto)
     {
-        // pendiente: validar y actualizar
-        return redirect()->route('admin.productos.index');
+        $producto->update($request->validated());
+
+        return redirect()->route('admin.productos.index')
+            ->with('exito', 'Producto actualizado correctamente.');
     }
 
     public function destroy(Producto $producto)
     {
-        // pendiente: eliminar
-        return redirect()->route('admin.productos.index');
+        try {
+            $producto->delete();
+        } catch (QueryException $e) {
+            return redirect()->route('admin.productos.index')
+                ->with('error', 'No se puede eliminar: tiene pedidos');
+        }
+
+        return redirect()->route('admin.productos.index')
+            ->with('exito', 'Producto eliminado correctamente.');
     }
 }
