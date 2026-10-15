@@ -14,12 +14,12 @@ class ProductoSeeder extends Seeder
     public function run(): void
     {
         $productos = [
-    ['nombre' => 'Nike Ja 4', 'precio' => 2500, 'imagen' => 'img/productos/nike-ja-4.jpg', 'categoria' => 'basketball', 'marca' => 'nike', 'genero' => 'unisex', 'stock' => 15],
-    ['nombre' => 'Nike Giannis Immortality 5', 'precio' => 3500, 'imagen' => 'img/productos/nike-giannis-immortality-5.jpg', 'categoria' => 'basketball', 'marca' => 'nike', 'genero' => 'unisex', 'stock' => 10],
-    ['nombre' => 'Nike ZoomX Vaporfly Next% 3', 'precio' => 9500, 'imagen' => 'img/productos/nike-zoomx-vaporfly-next-3.png', 'categoria' => 'running', 'marca' => 'nike', 'genero' => 'unisex', 'stock' => 8],
-    ['nombre' => 'Nike Air Max', 'precio' => 5500, 'imagen' => 'img/productos/nike-air-max.png', 'categoria' => 'casual', 'marca' => 'nike', 'genero' => 'hombre', 'stock' => 12],
-    ['nombre' => 'Converse Chuck 70', 'precio' => 4800, 'imagen' => 'img/productos/converse-chuck-70.png', 'categoria' => 'casual', 'marca' => 'converse', 'genero' => 'unisex', 'stock' => 20],
-    ['nombre' => 'Converse Chuck Taylor Lift Platform', 'precio' => 4500, 'imagen' => 'img/productos/converse-chuck-taylor-lift.png', 'categoria' => 'casual', 'marca' => 'converse', 'genero' => 'mujer', 'stock' => 14],
+    ['nombre' => 'Nike Free Metcon 7', 'precio' => 8800, 'imagen' => 'img/productos/nike_free_metcon_7.png', 'categoria' => 'training', 'marca' => 'nike', 'genero' => 'unisex', 'stock' => 12],
+    ['nombre' => 'Ja Morant 4 "Phantom"', 'precio' => 9500, 'imagen' => 'img/productos/ja_4_phantom.png', 'categoria' => 'basketball', 'marca' => 'nike', 'genero' => 'hombre', 'stock' => 8],
+    ['nombre' => 'Nike Air Max 270', 'precio' => 11490, 'imagen' => 'img/productos/air_max_270.png', 'categoria' => 'training', 'marca' => 'nike', 'genero' => 'hombre', 'stock' => 19],
+    ['nombre' => 'Nike Pegasus Plus 2', 'precio' => 11490, 'imagen' => 'img/productos/nike_pegasus_plus_2.png', 'categoria' => 'training', 'marca' => 'nike', 'genero' => 'hombre', 'stock' => 24],
+    ['nombre' => 'Nike Vomero Premium', 'precio' => 15890, 'imagen' => 'img/productos/nike_vomero_premium.png', 'categoria' => 'running', 'marca' => 'nike', 'genero' => 'hombre', 'stock' => 60],
+    ['nombre' => 'Nike Hybrid RN', 'precio' => 10000, 'imagen' => 'img/productos/nike_hybrid_women.png', 'categoria' => 'training', 'marca' => 'nike', 'genero' => 'mujer', 'stock' => 34],
 ];
 
 foreach ($productos as $producto) {
