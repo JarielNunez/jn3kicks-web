@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Usuario;
 
 class AuthController extends Controller
 {
-    // Muestra la vista del formulario de login
+    // --- LOGIN & LOGOUT ---
+    
     public function showLoginForm()
     {
         return view('login');
@@ -16,23 +18,17 @@ class AuthController extends Controller
     // Procesar la solicitud de inicio de sesión
     public function login(Request $request)
     {
-        // 1. Validar las entradas del usuario
         $credentials = $request->validate([
             'correo' => ['required', 'email'],
             'contrasena' => ['required'],
         ]);
 
-        // 2. Intentar autenticar con las credenciales
-        // NOTA: Mapeamos la entrada 'contrasena' a la llave interna 'password' que exige Auth::attempt
+        
         if (Auth::attempt(['correo' => $credentials['correo'], 'password' => $credentials['contrasena']], $request->boolean('recordar'))) {
-            // Regenerar la sesión por seguridad
             $request->session()->regenerate();
-
-            // Redirigir a la página principal o a la intención previa
             return redirect()->intended('/');
         }
 
-        // 3. Si falla, regresar con mensaje de error genérico
         return back()->withErrors([
             'correo' => 'Las credenciales proporcionadas no coinciden con nuestros registros.',
         ])->onlyInput('correo');
@@ -47,5 +43,44 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/');
+    }
+
+    // --- REGISTRO ---
+
+    // 1. Mostrar la vista del formulario de registro
+    public function showRegisterForm()
+    {
+        return view('registro');
+    }
+
+    // 2. Procesar el registro en la base de datos
+    public function register(Request $request)
+    {
+        // Validación de entradas
+        $request->validate([
+            'nombre' => ['required', 'string', 'max:255'],
+            'correo' => ['required', 'string', 'email', 'max:255', 'unique:usuarios,correo'],
+            'contrasena' => ['required', 'string', 'min:6', 'confirmed'],
+            'terminos' => ['accepted'], // Verifica que acepte términos
+        ], [
+            'correo.unique' => 'Este correo electrónico ya está registrado.',
+            'contrasena.confirmed' => 'Las contraseñas no coinciden.',
+            'contrasena.min' => 'La contraseña debe tener al menos 6 caracteres.',
+            'terminos.accepted' => 'Debes aceptar los Términos y Condiciones.',
+        ]);
+
+        // Crear el usuario (el modelo Usuario aplica el cast 'hashed' automáticamente)
+        $usuario = Usuario::create([
+            'nombre' => $request->nombre,
+            'correo' => $request->correo,
+            'contrasena' => $request->contrasena, // NO usar Hash::make()
+            'rol' => 'cliente', // Rol por defecto
+        ]);
+
+        // Iniciar sesión automáticamente y regenerar sesión por seguridad
+        Auth::login($usuario);
+        $request->session()->regenerate();
+
+        return redirect('/')->with('mensaje', '¡Cuenta creada e inicio de sesión exitoso!');
     }
 }
