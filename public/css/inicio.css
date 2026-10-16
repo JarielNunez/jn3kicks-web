@@ -5,6 +5,7 @@
     gap: 48px;
     align-items: center;
     padding: 48px 3;
+    border-top: 3px solid var(--color-acento);
 }
 
 .hero__etiqueta {
