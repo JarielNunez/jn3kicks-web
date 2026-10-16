@@ -57,8 +57,8 @@
                 <button type="button" class="carrito-resumen__boton">Proceder al Pago</button>
             @else
                 <button type="button" class="carrito-resumen__boton"
-                        onclick="window.location.href='{{ url('/login') }}'">
-                    Proceder al Pago
+                onclick="window.location.href='{{ route('login') }}'"
+                Proceder al Pago
                 </button>
             @endauth
         </div>
