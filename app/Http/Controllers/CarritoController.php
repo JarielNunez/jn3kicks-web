@@ -20,6 +20,23 @@ class CarritoController extends Controller
         return view('carrito', compact('articulos')); 
     }
 
+    public function store(Request $request)
+{
+    $datos = $request->validate([
+        'producto_id' => 'required|exists:productos,id',
+    ]);
+
+    $articulo = Carrito::firstOrNew([
+        'usuario_id'  => $this->usuarioActualId(),
+        'producto_id' => $datos['producto_id'],
+    ]);
+
+    $articulo->cantidad = ($articulo->cantidad ?? 0) + 1;
+    $articulo->save();
+
+    return redirect()->route('carrito.index');
+}
+
     public function update(Request $request, Carrito $carrito)
 {
     abort_if($carrito->usuario_id != $this->usuarioActualId(), 403);
