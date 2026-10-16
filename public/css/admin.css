@@ -170,3 +170,15 @@
         overflow-x: auto;
     }
 }
+
+.admin__error {
+    display: block;
+    color: var(--color-acento-secundario);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+a.admin__boton-accion {
+    display: inline-block;
+    text-decoration: none;
+}
