@@ -7,6 +7,7 @@
 @section('titulo', 'Inicio')
 
 @section('contenido')
+<<<<<<< HEAD
 <div class="container">
     <h1>Bienvenidos a JN3 KICKS</h1>
     <p>Los mejores tenis al mejor precio.</p>
@@ -23,4 +24,7 @@
         @endforeach
     </div>
 </div>
+=======
+    <h1>Inicio f'u'ncionando</h1>
+>>>>>>> jhan-joshua-herrera/fase-4
 @endsection

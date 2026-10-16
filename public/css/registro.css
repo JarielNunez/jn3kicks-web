@@ -1,0 +1,179 @@
+/* ===================================================
+   Estilos Unificados de Autenticación - JN3 KICKS
+   =================================================== */
+
+body {
+    background-color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #111111;
+    margin: 0;
+    padding: 0;
+}
+
+/* Tarjeta / Contenedor Principal Centrado */
+.login-container,
+.register-container {
+    max-width: 450px;
+    margin: 40px auto;
+    padding: 40px 35px;
+    background-color: #ffffff;
+    border: 1px solid #111111; /* Borde fino negro característico */
+    box-sizing: border-box;
+}
+
+/* Encabezados y Subtítulos */
+.login-container h2,
+.register-container h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 6px;
+    color: #000000;
+    letter-spacing: -0.5px;
+}
+
+.auth-subtitle {
+    font-size: 14px;
+    color: #8d8d8d;
+    margin-top: 0;
+    margin-bottom: 28px;
+    font-weight: 400;
+}
+
+/* Campos del Formulario */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #111111;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 14px;
+    border: 1px solid #111111;
+    border-radius: 0; /* Bordes rectos */
+    outline: none;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    color: #111111;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input::placeholder {
+    color: #aaaaaa;
+}
+
+.form-group input:focus {
+    border-color: #000000;
+    box-shadow: 0 0 0 1px #000000;
+}
+
+/* Mensaje de Ayuda / Hint */
+.form-hint {
+    font-size: 12px;
+    color: #8d8d8d;
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+/* Checkbox Términos y Condiciones */
+.checkbox-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 22px;
+    margin-bottom: 25px;
+    font-size: 12px;
+    color: #666666;
+    line-height: 1.4;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-top: 2px;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #111111;
+    accent-color: #000000;
+    cursor: pointer;
+}
+
+.checkbox-container a {
+    color: #111111;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.checkbox-container a:hover {
+    text-decoration: underline;
+}
+
+/* Alertas de Error */
+.alert-danger {
+    background-color: #fff5f5;
+    border: 1px solid #111111;
+    color: #e53e3e;
+    padding: 12px 16px;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.alert-danger ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+/* Botón de Acción Principal */
+.btn-login,
+.btn-register {
+    width: 100%;
+    padding: 14px;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 0;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-login:hover,
+.btn-register:hover {
+    background-color: #333333;
+}
+
+/* Enlaces Inferiores del Formulario */
+.auth-footer {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e5e5;
+    text-align: center;
+    font-size: 13px;
+    color: #8d8d8d;
+}
+
+.auth-footer.flex-links {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.auth-footer a {
+    color: #000000;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
