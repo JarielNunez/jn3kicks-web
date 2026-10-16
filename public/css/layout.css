@@ -26,23 +26,19 @@ body {
 .user-icon-btn:hover { color: var(--color-acento); }
 
 /* Footer negro */
-.footer {
-    background: var(--color-oscuro);
-    color: #ffffff;
+footer.footer {
+    width: 100%;
+    box-sizing: border-box;
+    align-self: stretch;
+    max-width: none;
+    margin: 0;
+    background: var(--color-fondo-elevado);
+    border-top: 3px solid var(--color-acento);
+    color: var(--color-texto-secundario);
+    font-size: 0.9rem;
     text-align: center;
     padding: 32px 24px;
 }
 
-.footer ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    flex-wrap: wrap;
-    max-width: none;
-    margin: 0;
-}
-
-.footer a { color: #ffffff; text-decoration: none; }
+.footer a { color: var(--color-texto); text-decoration: none; }
 .footer a:hover { color: var(--color-acento); }
