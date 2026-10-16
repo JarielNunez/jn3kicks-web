@@ -66,6 +66,10 @@ function eliminarArticulo(carritoId, elemento) {
         if (datos.exito) {
             elemento.remove();
             actualizarTotales();
+            if (document.querySelectorAll(".carrito-item").length === 0) {
+    document.querySelector(".carrito-pagina__lista").innerHTML =
+        '<p class="carrito-pagina__vacio">Tu carrito está vacío.</p>';
+}
         }
     });
 }
