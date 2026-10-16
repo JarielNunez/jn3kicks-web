@@ -14,13 +14,15 @@ class ProductoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nombre'    => 'required|string|max:255',
-            'precio'    => 'required|numeric|min:0',
-            'imagen'    => 'required|string|max:255',
-            'categoria' => 'required|in:running,basketball,casual',
-            'marca'     => 'required|in:nike,converse',
-            'genero'    => 'required|in:hombre,mujer,unisex',
-            'stock'     => 'required|integer|min:0',
+            'nombre'       => 'required|string|max:255',
+            'precio'       => 'required|numeric|min:0',
+            'imagen'       => 'required|string|max:255',
+            'categoria'    => 'required|in:running,basketball,casual',
+            'marca'        => 'required|in:nike,converse',
+            'genero'       => 'required|in:hombre,mujer,unisex',
+            'stock'        => 'required|integer|min:0',
+            'es_principal' => 'boolean',
+            'destacado'    => 'boolean',
         ];
     }
 
@@ -43,6 +45,8 @@ class ProductoRequest extends FormRequest
             'stock.required'     => 'El stock es obligatorio.',
             'stock.integer'      => 'El stock debe ser un número entero.',
             'stock.min'          => 'El stock no puede ser negativo.',
+            'es_principal.boolean' => 'El valor de producto principal no es válido.',
+            'destacado.boolean'    => 'El valor de destacado no es válido.',
         ];
     }
 }
