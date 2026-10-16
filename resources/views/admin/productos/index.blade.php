@@ -35,6 +35,7 @@
                     <th>Género</th>
                     <th>Categoría</th>
                     <th>Stock</th>
+                    <th>En inicio</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -48,6 +49,17 @@
                         <td>{{ ucfirst($p->genero) }}</td>
                         <td>{{ ucfirst($p->categoria) }}</td>
                         <td>{{ $p->stock }}</td>
+                        <td>
+                            @if ($p->es_principal)
+                                <strong>Principal</strong>
+                            @endif
+                            @if ($p->destacado)
+                                <strong>Destacado</strong>
+                            @endif
+                            @if (! $p->es_principal && ! $p->destacado)
+                                —
+                            @endif
+                        </td>
                         <td>
                             <div class="admin__tabla-acciones">
                                 <a href="{{ route('admin.productos.edit', $p) }}" class="admin__boton-accion admin__boton-editar">Editar</a>
@@ -63,7 +75,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="8">No hay productos registrados.</td>
+                        <td colspan="9">No hay productos registrados.</td>
                     </tr>
                 @endforelse
             </tbody>

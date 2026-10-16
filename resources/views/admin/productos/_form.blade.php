@@ -58,3 +58,23 @@
            value="{{ old('stock', $producto->stock ?? '') }}" required>
     @error('stock') <small class="admin__error">{{ $message }}</small> @enderror
 </div>
+
+<div class="admin__campo">
+    <input type="hidden" name="es_principal" value="0">
+    <label for="es_principal">
+        <input type="checkbox" id="es_principal" name="es_principal" value="1"
+               @checked(old('es_principal', $producto->es_principal ?? false))>
+        Producto principal
+    </label>
+    @error('es_principal') <small class="admin__error">{{ $message }}</small> @enderror
+</div>
+
+<div class="admin__campo">
+    <input type="hidden" name="destacado" value="0">
+    <label for="destacado">
+        <input type="checkbox" id="destacado" name="destacado" value="1"
+               @checked(old('destacado', $producto->destacado ?? false))>
+        Destacado en inicio
+    </label>
+    @error('destacado') <small class="admin__error">{{ $message }}</small> @enderror
+</div>
