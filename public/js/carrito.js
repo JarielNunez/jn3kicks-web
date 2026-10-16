@@ -1,43 +1,7 @@
 // ----- CARRITO (Jariel) -----
-function cargarCarrito() {
-    fetch("php/carrito/carrito_ver.php")
-        .then(function(respuesta) {
-            return respuesta.json();
-        })
-        .then(function(datos) {
-            mostrarArticulos(datos);
-        });
-}
+const ENVIO = 250;
+const TOKEN = document.querySelector('meta[name="csrf-token"]').content;
 
-function mostrarArticulos(articulosData) {
-    const contenedor = document.querySelector(".carrito-pagina__lista");
-    contenedor.innerHTML = "";
-
-    articulosData.forEach(function(articulo) {
-        const div = document.createElement("div");
-        div.classList.add("carrito-item");
-        div.dataset.carritoId = articulo.id; // Guardamos el ID real de la fila en la BD
-
-        div.innerHTML = `
-            <div class="carrito-item__imagen"></div>
-            <div class="carrito-item__info">
-                <span class="carrito-item__nombre">${articulo.nombre}</span>
-                <span class="carrito-item__precio">$${articulo.precio}</span>
-            </div>
-            <div class="carrito-item__controles">
-                <button class="carrito-item__btn">&lt;</button>
-                <span class="carrito-item__cantidad">${articulo.cantidad}</span>
-                <button class="carrito-item__btn">&gt;</button>
-            </div>
-            <a href="#" class="carrito-item__eliminar">Eliminar</a>
-        `;
-
-        contenedor.appendChild(div);
-    });
-
-    activarEventos(); // Conecta los botones DESPUÉS de crear el HTML
-    actualizarTotales();
-}
 
 function activarEventos() {
     const articulos = document.querySelectorAll(".carrito-item");
@@ -70,33 +34,49 @@ function activarEventos() {
 
         botonEliminar.addEventListener("click", function(evento) {
             evento.preventDefault();
-            eliminarArticulo(carritoId);
+            eliminarArticulo(carritoId, articulo);
         });
     });
 }
 
 function guardarCantidad(carritoId, nuevaCantidad) {
-    fetch("php/carrito/carrito_actualizar.php", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: "carrito_id=" + carritoId + "&cantidad=" + nuevaCantidad
+    fetch("/carrito/" + carritoId, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "X-CSRF-TOKEN": TOKEN
+        },
+        body: JSON.stringify({ cantidad: nuevaCantidad })
     });
 }
 
-function eliminarArticulo(carritoId) {
-    fetch("php/carrito/carrito_eliminar.php", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: "carrito_id=" + carritoId
+function eliminarArticulo(carritoId, elemento) {
+    fetch("/carrito/" + carritoId, {
+        method: "DELETE",
+        headers: {
+            "Accept": "application/json",
+            "X-CSRF-TOKEN": TOKEN
+        }
     })
     .then(function(respuesta) {
         return respuesta.json();
     })
     .then(function(datos) {
         if (datos.exito) {
-            cargarCarrito(); // Vuelve a pedir la lista actualizada al servidor
+            elemento.remove();
+            actualizarTotales();
+            if (document.querySelectorAll(".carrito-item").length === 0) {
+    document.querySelector(".carrito-pagina__lista").innerHTML =
+        '<p class="carrito-pagina__vacio">Tu carrito está vacío.</p>';
+}
         }
     });
+}
+
+
+function formatoRD(numero) {
+    return "RD$" + numero.toLocaleString("es-DO", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
 function actualizarTotales() {
@@ -104,26 +84,19 @@ function actualizarTotales() {
     let subtotalGeneral = 0;
 
     articulos.forEach(function(articulo) {
-        const precioTexto = articulo.querySelector(".carrito-item__precio").textContent;
-        const cantidadTexto = articulo.querySelector(".carrito-item__cantidad").textContent;
-        const precio = limpiarPrecio(precioTexto);
-        const cantidad = parseInt(cantidadTexto);
+        const precio = parseFloat(articulo.dataset.precio);
+        const cantidad = parseInt(articulo.querySelector(".carrito-item__cantidad").textContent);
         subtotalGeneral = subtotalGeneral + (precio * cantidad);
     });
 
-    const envio = articulos.length > 0 ? 10 : 0;
+    const envio = articulos.length > 0 ? ENVIO : 0;
     const totalGeneral = subtotalGeneral + envio;
 
-    document.querySelector(".carrito-resumen__valor-subtotal").textContent = "$" + subtotalGeneral.toFixed(2);
-    document.querySelector(".carrito-resumen__valor-envio").textContent = "$" + envio.toFixed(2);
-    document.querySelector(".carrito-resumen__valor-total").textContent = "$" + totalGeneral.toFixed(2);
+    document.querySelector(".carrito-resumen__valor-subtotal").textContent = formatoRD(subtotalGeneral);
+    document.querySelector(".carrito-resumen__valor-envio").textContent = formatoRD(envio);
+    document.querySelector(".carrito-resumen__valor-total").textContent = formatoRD(totalGeneral);
 }
 
-function limpiarPrecio(textoConSimbolo) {
-    const numeroLimpio = textoConSimbolo.replace("$", "");
-    const numeroFinal = parseFloat(numeroLimpio);
-    return numeroFinal;
-}
 
 const botonPagar = document.querySelector(".carrito-resumen__boton");
 
@@ -131,4 +104,5 @@ botonPagar.addEventListener("click", function() {
     alert("¡Gracias por tu compra! Total a pagar: " + document.querySelector(".carrito-resumen__valor-total").textContent);
 });
 
-cargarCarrito(); // En vez de actualizarTotales() suelto, ahora arrancamos pidiendo los datos reales
+activarEventos();
+actualizarTotales();
