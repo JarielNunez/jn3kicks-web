@@ -1,23 +1,24 @@
 :root {
-/* Colores principales */
---color-fondo: #ffffff;
---color-bg: #ffffff;
---color-fondo-elevado: #9a9a9a;
---color-bg-card: #9a9a9a;
+    /* Colores principales */
+    --color-fondo: #ffffff;
+    --color-bg: #ffffff;
+    --color-fondo-elevado: #f5f5f5;
+    --color-bg-card: #f5f5f5;
+    --color-oscuro: #111111;
 
-/* Textos */
---color-texto: oklab(0% 0 0);
---color-text: oklab(0% 0 0);
---color-texto-secundario: #9a9a9a;
---color-text-secondary: #9a9a9a;
+    /* Textos */
+    --color-texto: #111111;
+    --color-text: #111111;
+    --color-texto-secundario: #6b6b6b;
+    --color-text-secondary: #6b6b6b;
 
-/* Acentos y Bordes */
---color-acento: #5280ff;
---color-acento-secundario: #e11d2e;
---color-borde: #2b2b2b;
---color-barra-navegador: #1a1a1a;
+    /* Acentos y bordes */
+    --color-acento: #d71920;
+    --color-acento-secundario: #111111;
+    --color-borde: #e5e5e5;
+    --color-barra-navegador: #ffffff;
 
-/* Fuentes */
---fuente-principal: 'Inter', sans-serif;
---fuente-display: 'Space Grotesk', sans-serif;
+    /* Fuentes */
+    --fuente-principal: 'Inter', sans-serif;
+    --fuente-display: 'Space Grotesk', sans-serif;
 }
