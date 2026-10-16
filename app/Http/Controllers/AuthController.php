@@ -83,4 +83,36 @@ class AuthController extends Controller
 
         return redirect('/')->with('mensaje', '¡Cuenta creada e inicio de sesión exitoso!');
     }
+
+    // OLVIDE CONTRASEÑA
+
+
+    // Muestra el formulario para buscar la cuenta
+public function showFindAccountForm()
+{
+    return view('recuperar-contrasena');
+}
+
+// Procesa la búsqueda de la cuenta por correo
+public function findAccount(Request $request)
+{
+    $request->validate([
+        'correo' => ['required', 'email'],
+    ], [
+        'correo.required' => 'Por favor ingresa tu correo electrónico.',
+        'correo.email' => 'Ingresa un formato de correo válido.',
+    ]);
+
+    // Verificar si el correo existe en la base de datos
+    $usuario = \App\Models\Usuario::where('correo', $request->correo)->first();
+
+    if (!$usuario) {
+        return back()->withErrors([
+            'correo' => 'No se encontró ninguna cuenta asociada a este correo.',
+        ])->withInput();
+    }
+
+    // Aquí iría la lógica de envío de correo/reset token si aplica
+    return back()->with('mensaje', 'Se han enviado las instrucciones de recuperación a tu correo.');
+}
 }

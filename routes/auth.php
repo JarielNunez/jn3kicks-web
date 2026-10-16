@@ -13,3 +13,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 // register routes
 Route::get('/registro', [AuthController::class, 'showRegisterForm'])->name('register');
 Route::post('/registro', [AuthController::class, 'register']);
+
+// recuperar contraseña routes
+Route::get('/recuperar-contrasena', [AuthController::class, 'showFindAccountForm'])->name('password.request');
+Route::post('/recuperar-contrasena', [AuthController::class, 'findAccount'])->name('password.search');
