@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Carrito;
 use App\Models\Usuario;
+use Illuminate\Support\Facades\Auth;
 
 class CarritoController extends Controller
 {
@@ -61,7 +62,6 @@ public function destroy(Carrito $carrito)
 
 private function usuarioActualId()
 {
-    // TEMPORAL: usuario demo hasta que esté el login de Joshua. Luego: return Auth::id();
-    return Usuario::where('correo', 'demo@jn3kicks.com')->value('id');
+    return Auth::id();
 }
 }

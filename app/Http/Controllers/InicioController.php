@@ -8,8 +8,18 @@ class InicioController extends Controller
 {
     public function index()
     {
-        $destacados = Producto::orderByDesc('id')->take(4)->get();
-        return view('inicio', compact('destacados'));
+
+
+    // TEMPORAL: hasta que JeanMarcos agregue es_principal y destacado
+    $principal = Producto::orderByDesc('precio')->first();
+
+    $destacados = Producto::where('id', '!=', $principal->id)
+        ->latest('id')
+        ->take(4)
+        ->get();
+
+    return view('inicio', compact('principal', 'destacados'));
+
     }
 
     public function nosotros()
