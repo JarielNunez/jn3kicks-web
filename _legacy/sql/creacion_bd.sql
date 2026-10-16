@@ -18,7 +18,6 @@ CREATE TABLE productos (
     marca VARCHAR(50),
     stock INT DEFAULT 0
 );
-
 -- Carrito activo de cada usuario
 CREATE TABLE carrito (
     id INT AUTO_INCREMENT PRIMARY KEY,
