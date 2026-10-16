@@ -255,3 +255,8 @@ ul {
 .footer__link:hover {
   color: #ffffff;
 }
+.carrito-item__foto {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
