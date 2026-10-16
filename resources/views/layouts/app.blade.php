@@ -6,15 +6,22 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>JN3 KICKS - @yield('titulo', 'Tienda de Tenis')</title>
     
-    <link rel="stylesheet" href="{{ asset('css/header-sesion.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{{ asset('css/variables.css') }}">
+<link rel="stylesheet" href="{{ asset('css/global.css') }}">
+<link rel="stylesheet" href="{{ asset('css/header-sesion.css') }}">
+<link rel="stylesheet" href="{{ asset('css/layout.css') }}">
     @stack('estilos')
 </head>
 <body>
 
     <header class="header">
         <nav class="nav">
-            <h2 class="logo">JN3 KICKS</h2>
-            <ul class="nav__links">
+<a href="/" class="logo">
+    <img src="{{ asset('img/logo.png') }}" alt="JN3 KICKS">
+</a>            <ul class="nav__links">
                 <li><a href="/">Inicio</a></li>
                 <li><a href="/catalogo">Catálogo</a></li>
                 <li><a href="/nosotros">Nosotros</a></li>

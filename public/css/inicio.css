@@ -1,0 +1,122 @@
+/* ===== PRODUCTO PRINCIPAL ===== */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 48px;
+    align-items: center;
+    padding: 48px 3;
+}
+
+.hero__etiqueta {
+    color: var(--color-acento);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 0 0 12px;
+}
+
+.hero__titulo {
+    font-family: var(--fuente-display);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.1;
+    margin: 0 0 16px;
+}
+
+.hero__descripcion {
+    color: var(--color-texto-secundario);
+    line-height: 1.6;
+    margin: 0 0 16px;
+}
+
+.hero__precio {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 24px;
+}
+
+.hero__acciones {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.hero__boton {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 999px;
+    background: var(--color-oscuro);
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid var(--color-oscuro);
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.hero__boton:hover {
+    background: var(--color-acento);
+    border-color: var(--color-acento);
+}
+
+.hero__boton--secundario {
+    background: transparent;
+    color: var(--color-oscuro);
+}
+
+.hero__boton--secundario:hover {
+    background: var(--color-oscuro);
+    border-color: var(--color-oscuro);
+    color: #ffffff;
+}
+
+.hero__imagen {
+    display: block;
+    background: var(--color-fondo-elevado);
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    padding: 32px;
+    text-align: center;
+}
+
+.hero__imagen img {
+    display: block;
+    width: 100%;
+    max-width: 520px;
+    max-height: 420px;
+    object-fit: contain;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ===== DESTACADOS ===== */
+.destacados {
+    padding: 24px 0 64px;
+}
+
+.destacados__titulo {
+    font-family: var(--fuente-display);
+    margin: 0 0 24px;
+}
+
+.destacados .catalogo-productos {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+
+/* ===== CELULAR ===== */
+@media (max-width: 800px) {
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 24px 0;
+        text-align: center;
+    }
+
+    .hero__imagen {
+        order: -1;
+        padding: 16px;
+    }
+
+    .hero__imagen img { max-height: 280px; }
+
+    .hero__acciones { justify-content: center; }
+}

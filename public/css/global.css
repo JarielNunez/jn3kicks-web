@@ -19,7 +19,7 @@ ul {
     list-style: none;
 }
 
-/* HEADER */
+/* HEADER 
 .header {
     background-color: #1a1a1a;
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
@@ -36,7 +36,7 @@ ul {
 .header .nav__links a:hover {
     color: #ffffff;
 }
-
+*/
 .nav {
     display: flex;
     align-items: center;
@@ -202,7 +202,7 @@ ul {
     color: var(--color-acento-secundario);
 }
 
-/* FOOTER */
+/* FOOTER 
 .footer {
     max-width: 1180px;
     margin: 0 auto;
@@ -232,3 +232,4 @@ ul {
     font-size: 0.85rem;
     color: var(--color-texto-secundario);
 }
+    */
