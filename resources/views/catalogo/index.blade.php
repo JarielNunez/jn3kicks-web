@@ -11,7 +11,7 @@
 
     <section class="introduccion">
         <p class="etiqueta">JN3 KICKS</p>
-        <h1>Nuestra colección</h1>
+        <h1>Colección 2026</h1>
         <p>Descubre los tenis ideales para tu estilo.</p>
     </section>
 

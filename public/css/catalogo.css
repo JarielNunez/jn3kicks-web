@@ -12,12 +12,8 @@
 
 :root {
     --color-principal: #171717;
-    --color-texto: #222222;
     --color-secundario: #666666;
-    --color-borde: #e5e5e5;
-    --color-fondo: #f6f6f6;
     --color-blanco: #ffffff;
-    --color-dorado: #a68a42;
     --radio: 12px;
     --sombra: 0 5px 20px rgb(0 0 0 / 6%);
 }
@@ -28,7 +24,6 @@ body {
     flex-direction: column;
     background: var(--color-blanco);
     color: var(--color-texto);
-    font-family: Arial, Helvetica, sans-serif;
     line-height: 1.5;
 }
 
@@ -96,7 +91,7 @@ img {
 
 .introduccion .etiqueta {
     margin-bottom: 10px;
-    color: var(--color-dorado);
+    color: var(--color-acento);
     font-size: 12px;
     font-weight: 800;
     letter-spacing: 2px;
@@ -167,8 +162,8 @@ img {
 
 .campo-busqueda input:focus,
 .campo-filtro select:focus {
-    border-color: var(--color-dorado);
-    box-shadow: 0 0 0 3px rgb(166 138 66 / 13%);
+    border-color: var(--color-acento);
+    box-shadow: 0 0 0 3px rgb(215 25 32 / 13%);
 }
 
 /* 5. CATÁLOGO: TRES TARJETAS POR FILA */
@@ -212,7 +207,7 @@ img {
     height: 260px;
     padding: 20px;
     overflow: hidden;
-    background: var(--color-fondo);
+    background: var(--color-elevado);
     text-decoration: none;
 }
 

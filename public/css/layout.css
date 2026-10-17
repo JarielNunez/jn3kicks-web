@@ -14,6 +14,7 @@ body {
 .header {
     background: var(--color-fondo);
     border-bottom: 1px solid var(--color-borde);
+    background: var(--color-fondo-elevado);
   
 }
 
@@ -38,6 +39,16 @@ footer.footer {
     font-size: 0.9rem;
     text-align: center;
     padding: 32px 24px;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
 }
 
 .footer a { color: var(--color-texto); text-decoration: none; }
