@@ -12,7 +12,7 @@
 
     <section class="introduccion">
         <p class="etiqueta">JN3 KICKS</p>
-        <h1>Sobre nosotros</h1>
+        <h1>Nuestra historia</h1>
         <p>Tenis originales importados desde USA. Calidad garantizada, compra con confianza.</p>
     </section>
 

@@ -22,7 +22,8 @@ class ProductoController extends Controller
 
     public function store(ProductoRequest $request)
     {
-        Producto::create($request->validated());
+        $producto = Producto::create($request->validated());
+        $this->soloUnPrincipal($producto);
 
         return redirect()->route('admin.productos.index')
             ->with('exito', 'Producto creado correctamente.');
@@ -36,6 +37,7 @@ class ProductoController extends Controller
     public function update(ProductoRequest $request, Producto $producto)
     {
         $producto->update($request->validated());
+        $this->soloUnPrincipal($producto);
 
         return redirect()->route('admin.productos.index')
             ->with('exito', 'Producto actualizado correctamente.');
@@ -52,5 +54,14 @@ class ProductoController extends Controller
 
         return redirect()->route('admin.productos.index')
             ->with('exito', 'Producto eliminado correctamente.');
+    }
+
+    // Si este producto quedó como principal, desmarca a todos los demás.
+    private function soloUnPrincipal(Producto $producto): void
+    {
+        if ($producto->es_principal) {
+            Producto::where('id', '!=', $producto->id)
+                ->update(['es_principal' => false]);
+        }
     }
 }

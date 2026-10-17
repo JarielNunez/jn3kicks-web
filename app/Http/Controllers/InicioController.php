@@ -9,17 +9,28 @@ class InicioController extends Controller
     public function index()
     {
 
+    $principal = Producto::where('es_principal', true)->first()
+        ?? Producto::orderByDesc('precio')->first();
 
-    // TEMPORAL: hasta que JeanMarcos agregue es_principal y destacado
-    $principal = Producto::orderByDesc('precio')->first();
-
-    $destacados = Producto::where('id', '!=', $principal->id)
-        ->latest('id')
+    $destacados = Producto::where('destacado', true)
+        ->where('id', '!=', $principal->id)
         ->take(4)
         ->get();
 
-    return view('inicio', compact('principal', 'destacados'));
+    if ($destacados->isEmpty()) {
+        $destacados = Producto::where('id', '!=', $principal->id)->latest('id')->take(4)->get();
+    }
+    $banner = Producto::where('id', '!=', $principal->id)
+    ->whereNotIn('id', $destacados->pluck('id'))
+    ->first()
+    ?? Producto::where('id', '!=', $principal->id)->orderByDesc('precio')->first();
 
+    $banner = Producto::where('id', '!=', $principal->id)
+        ->whereNotIn('id', $destacados->pluck('id'))
+        ->first()
+        ?? Producto::where('id', '!=', $principal->id)->orderByDesc('precio')->first();
+
+return view('inicio', compact('principal', 'destacados', 'banner'));
     }
 
     public function nosotros()

@@ -103,6 +103,69 @@
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 }
 
+/* ===== BENEFICIOS ===== */
+.beneficios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin: 32px 0;
+}
+
+.beneficio {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 20px;
+    background: var(--color-fondo-elevado);
+    border-radius: 12px;
+}
+
+.beneficio__icono {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--color-fondo);
+    color: var(--color-acento);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.beneficio__icono svg { width: 22px; height: 22px; }
+
+.beneficio__titulo { font-weight: 700; margin: 0 0 2px; }
+
+.beneficio__texto {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--color-texto-secundario);
+}
+
+/* ===== BANNER OSCURO ===== */
+.hero--oscuro {
+    grid-template-columns: 1.2fr 1fr;
+    background: var(--color-oscuro);
+    border-color: var(--color-oscuro);
+    color: #ffffff;
+    margin-bottom: 64px;
+}
+
+.hero--oscuro .hero__descripcion { color: #bdbdbd; }
+
+.hero--oscuro .hero__imagen { box-shadow: none; }
+
+.hero__boton--acento {
+    background: var(--color-acento);
+    border-color: var(--color-acento);
+}
+
+.hero__boton--acento:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+    color: var(--color-oscuro);
+}
+
 /* ===== CELULAR ===== */
 @media (max-width: 800px) {
     .hero {
